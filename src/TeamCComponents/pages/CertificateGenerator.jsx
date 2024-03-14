@@ -3,6 +3,7 @@ import img from "../../TeamDComponents/TeamD_Assets/certificate-background.png";
 import signatureImg from "../../TeamDComponents/TeamD_Assets/Signiture.png";
 import Team_D_HeaderV2 from "../../TeamDComponents/Team_D_HeaderV2";
 import jsPDF  from 'jspdf';
+import { Button } from "react-bootstrap";
 
 const CertificateGenerator = () => {
   const [quiz, setQuiz] = useState([]);
@@ -12,7 +13,7 @@ const CertificateGenerator = () => {
     const loadQuiz = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/v1/auth/finalscore/1"    
+          "http://localhost:8080/api/v1/auth/finalscore/3"    
         );
         if (!response.ok) {
           throw new Error("Failed to fetch quiz data");
@@ -288,7 +289,7 @@ const CertificateGenerator = () => {
             this Course
           </p>
         </div>
-        <button onClick={generateCertificate}>Submit</button>
+        <Button onClick={generateCertificate}>Submit</Button>
       </div>
     </>
   );

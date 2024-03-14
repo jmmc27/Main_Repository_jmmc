@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import Footer from "./Footer";
@@ -8,9 +8,21 @@ function LoginForm({ openForgotModal, closeLoginModal }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const [failedAttempts, setFailedAttempts] = useState(0);
+  const [rememberMe, setRememberMe] = useState(false); // State to store remember me option
 
   const { handleLogin } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem("rememberedEmail");
+    const storedPassword = localStorage.getItem("rememberedPassword");
+    if (storedEmail && storedPassword) {
+      setEmail(storedEmail);
+      setPassword(storedPassword);
+      setRememberMe(true); // Only set to true if stored email and password exist
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -18,6 +30,14 @@ function LoginForm({ openForgotModal, closeLoginModal }) {
       const result = await handleLogin({ email, password });
 
       if (result.success) {
+        if (rememberMe) {
+          localStorage.setItem("rememberedEmail", email);
+          localStorage.setItem("rememberedPassword", password);
+        } else {
+          localStorage.removeItem("rememberedEmail");
+          localStorage.removeItem("rememberedPassword");
+        }
+
         const storedRole = localStorage.getItem("Mapped role:");
         console.log("Login successful");
         {
@@ -71,7 +91,15 @@ function LoginForm({ openForgotModal, closeLoginModal }) {
           placeholder="Password"
           required
         />
-        <div className="remember-me"></div>
+        <div className="remember-me">
+          <input
+            type="checkbox"
+            id="rememberMe"
+            checked={rememberMe}
+            onChange={(e) => setRememberMe(e.target.checked)}
+          />
+          <label htmlFor="rememberMe">Remember Me</label>
+        </div>
         <div>
           <h3 style={{ marginTop: "15px" }}>
             By clicking "Sign in," you agree to our Terms of Use and our Privacy

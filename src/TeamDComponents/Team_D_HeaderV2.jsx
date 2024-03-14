@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, Link, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./TeamD_Css/navbar.css";
 import TsukidenLogo from "./TeamD_Assets/TsukidenLogo.png";
 import Profile from "./TeamD_Assets/profilepic.jpg";
@@ -11,40 +11,57 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import ForumF from "./../TeamCComponents/pages/ForumF";
 import { useAuth } from "../TeamAComponents/components/AuthContext";
 import ProfileModal from "../TeamAComponents/components/ProfileModal";
+import { color } from "style-value-types";
 
 function getUserImageType(profilePicture) {
   // Check if profilePicture is defined and not null
   if (profilePicture && profilePicture.startsWith) {
     // Check the image type based on the data
-    const isPNG = profilePicture.startsWith('data:image/png;base64,');
-    const isJPEG = profilePicture.startsWith('data:image/jpeg;base64,');
-    
+    const isPNG = profilePicture.startsWith("data:image/png;base64,");
+    const isJPEG = profilePicture.startsWith("data:image/jpeg;base64,");
+
     if (isPNG) {
-      return 'png';
+      return "png";
     } else if (isJPEG) {
-      return 'jpeg';
+      return "jpeg";
     } else {
       // Return a default type or handle accordingly
-      return 'unknown'; // You can change this to 'jpeg' or handle as needed
+      return "unknown"; // You can change this to 'jpeg' or handle as needed
     }
   } else {
     // Return a default type or handle accordingly
-    return 'unknown'; // You can change this to 'jpeg' or handle as needed
+    return "unknown"; // You can change this to 'jpeg' or handle as needed
   }
 }
 
-const Team_D_HeaderV2 = () => {
+const Team_D_HeaderV2 = ({ onUserDataFetched, openModal, showModal }) => { // Pass openModal as a prop
   const [clicked, setClicked] = useState(false);
   const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] = useState(false);
-  const { handleLogout } = useAuth();
+  const { isLoggedIn, handleLogout } = useAuth();
+  const [userData, setUserData] = useState({});
   const value = localStorage.getItem('username');
   const firstname = localStorage.getItem('firstName');
   const lastname = localStorage.getItem('lastName');
   const email = localStorage.getItem('email');
   const navigate = useNavigate();
+  const [showProfileModal, setShowProfileModal] = useState(false); // State to control the visibility of the profile modal
+
+  const openProfileModal = () => {
+    setShowProfileModal(true); // Function to open the profile modal
+  };
+
+  const closeProfileModal = () => {
+    setShowProfileModal(false); // Function to close the profile modal
+  };
 
   const handleClick = () => {
     setClicked(!clicked);
+  };
+
+  const handleToggleEditModal = () => {
+    setIsEditModal((prevIsEditModal) => !prevIsEditModal);
+    // Call showModal with true to open the modal
+    showModal(true);
   };
 
   const closeMobileNavbar = () => {
@@ -64,6 +81,62 @@ const Team_D_HeaderV2 = () => {
   const handleCloseLogoutConfirmationModal = () => {
     setShowLogoutConfirmationModal(false);
   };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userId = localStorage.getItem("userId");
+        if (!userId) {
+          console.error("User ID not found in local storage");
+          return;
+        }
+
+        const response = await fetch(
+          `http://localhost:8080/api/v1/auth/users/${userId}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (response.ok) {
+          const userData = await response.json();
+          setUserData(userData);
+
+          if (
+            userData.profilePicture !== undefined &&
+            userData.profilePicture !== null
+          ) {
+            const base64 = btoa(
+              String.fromCharCode(...new Uint8Array(userData.profilePicture))
+            );
+            const imageType = getUserImageType(userData.profilePicture);
+            const dataUrl = `data:image/${imageType};base64,${base64}`;
+
+            onUserDataFetched({
+              ...userData,
+              profilePicture: dataUrl,
+            });
+          } else {
+            console.error(
+              "Profile picture is undefined or null in user data"
+            );  
+          }
+        } else {
+          console.error(
+            "Failed to fetch user data",
+            response.status,
+            response.statusText
+          );
+        }
+      } catch (error) {
+        console.error("Unexpected error during user data fetch", error);
+      }
+    };
+
+    fetchUserData();
+  }, [onUserDataFetched]);
 
   // Add or remove the 'no-scroll' class based on the 'clicked' state
   useEffect(() => {
@@ -81,28 +154,29 @@ const Team_D_HeaderV2 = () => {
   return (
     <>
       <nav className="navbar_TeamD">
-        <NavLink
-          onClick={() => {
-            closeMobileNavbar();
-          }}
-        >
-          <img src={TsukidenLogo} alt="Logo" />
+      <NavLink to="/" onClick={closeMobileNavbar}>
+          <img className="teamDimg" src={TsukidenLogo} alt="Logo" />
         </NavLink>
         <div>
           <ul id="navbar" className={clicked ? "active" : ""}>
-                    {/* Profile Info */}
-          <li className="profile_info">
-            <button className="profile_info_con" onClick={handleClick}>
-              <img src={Profile} alt="Logo" />
-              <span className="profile_info_name">
-                <p className="profile_fName">{firstname + " " + lastname}</p>
-                <p className="profile_email">{email}</p>
+            {/* Profile Info */}
+            <li className="profile_info">
+              <span className="profile_info_con">
+              <img
+                  src={userData.profilePicture
+                    ? `data:image/${getUserImageType(userData.profilePicture)};base64,${userData.profilePicture}`
+                    : Profile
+                  }
+                  alt="Logo"
+                />
+                <span className="profile_info_name">
+                  <p className="profile_fName">{firstname + " " + lastname}</p>
+                  <p className="profile_email">{email}</p>
+                </span>
               </span>
-            </button>
-          </li>
-          {/* Profile Links */}
-          <li className="profile_link">
-            <button onClick={handleClick}>
+            </li>
+            {/* Profile Links */}
+            <li className="profile_link">
               <NavLink
                 to="/profile"
                 activeClassName="active"
@@ -110,9 +184,7 @@ const Team_D_HeaderV2 = () => {
               >
                 Profile
               </NavLink>
-            </button>
-          </li>
-
+              </li>
             <li className="profile_link">
               <NavLink
                 to="/certificate"
@@ -169,6 +241,17 @@ const Team_D_HeaderV2 = () => {
                 Verification
               </NavLink>
             </li>
+            <li className="profile_link">
+              <NavLink
+                activeClassName="active"
+                onClick={() => {
+                  handleOpenLogoutConfirmationModal();
+                  closeMobileNavbar();
+                }}
+              >
+                <span className="teamD_LogOut_Btn">Log Out</span>
+              </NavLink>
+            </li>
           </ul>
         </div>
         {/* Mobile Menu */}
@@ -176,7 +259,15 @@ const Team_D_HeaderV2 = () => {
           {clicked ? (
             <i className="fas fa-times"></i>
           ) : (
-            <img src={Profile} alt="Logo" className="mobile_profile" />
+            <img
+            src={userData.profilePicture
+              ? `data:image/${getUserImageType(userData.profilePicture)};base64,${userData.profilePicture}`
+              : Profile
+            }
+            alt="Logo"
+            className="mobile_profile"
+          />
+
           )}
         </div>
         {/* Profile Dropdown */}
@@ -192,9 +283,10 @@ const Team_D_HeaderV2 = () => {
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item href="#">
-                <FaRegUserCircle /> Profile
-              </Dropdown.Item>
+            <Dropdown.Item href="#" onClick={openProfileModal}>
+                  <FaRegUserCircle /> Profile
+                </Dropdown.Item>
+                <ProfileModal showModal={showProfileModal} handleClose={closeProfileModal} />
               <Dropdown.Item
                 as={NavLink}
                 to="/certificate"
@@ -210,7 +302,6 @@ const Team_D_HeaderV2 = () => {
         </div>
       </nav>
       {showLogoutConfirmationModal && (
-          
               <div className="logoutmodal-overlay" onClick={handleCloseLogoutConfirmationModal}>
                   <div className="label-container">
               <div className="container-under">
@@ -228,7 +319,8 @@ const Team_D_HeaderV2 = () => {
             </div>
           </div>
         )}
-
+        {/* Render the ProfileModal component */}
+        <ProfileModal showModal={showModal}/>
     </>
   );
 };

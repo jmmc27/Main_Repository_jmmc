@@ -66,18 +66,7 @@ function Component_MainContent() {
                       scrolling="no"
                       className="blur-[.01rem] mt-3 h-[80%]  md:h-[350px] w-full lg:h-[450px] rounded-lg"></iframe>
 
-                    <div id="c_maincontent_buttoncontainer" >
-                      <button className="btn courseButton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#mainId"
-                        type="button"
-                        style={{
-                          backgroundColor: '#0E3B03',
-                          color: 'white',
-                          boxShadow: '0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)',
-                        }}
-                      >Go to quiz</button>
-                    </div>
+                    
                   </div>
                 </div>
               </div>

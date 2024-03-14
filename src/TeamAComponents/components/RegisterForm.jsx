@@ -32,9 +32,9 @@ function RegisterForm({ openLoginModal, closeRegisterModal, openVerificationModa
   const validatePassword = (password) => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d!@#$%^&*()_+]{8,}$/;
     const isValid = passwordRegex.test(password);
-
+  
     let errorMessage = '';
-
+  
     if (!isValid) {
       if (password.length < 8) {
         errorMessage += '\nAt least 8 characters';
@@ -49,12 +49,12 @@ function RegisterForm({ openLoginModal, closeRegisterModal, openVerificationModa
         errorMessage += '\nAt least 1 special character';
       }
     }
-
-    if (errorMessage === '') {
-      errorMessage = <span style={{ color: 'green' }}>Good Password</span>;
-    }
-
-    setError(errorMessage);
+  
+    // if (errorMessage === '') {
+    //   errorMessage = <span style={{ color: 'green' }}>ANSARAP MO PIA </span>;
+    // }
+  
+    setError(errorMessage); // Set the error message as a string
     return isValid;
   };
 
@@ -279,6 +279,8 @@ function RegisterForm({ openLoginModal, closeRegisterModal, openVerificationModa
         value={phoneNumber}
         onChange={handlePhoneNumberChange}
         placeholder="Phone Number"
+        pattern="[0-9]{11}" // Add pattern attribute for exactly 11 digits
+        title="Please enter a valid 11-digit phone number starting with '09'."
         required
       />
       <input
@@ -291,17 +293,18 @@ function RegisterForm({ openLoginModal, closeRegisterModal, openVerificationModa
         required
       />
       <div className="data-validation">
-        {(showError && emailClicked) && (
-          <label style={{ color: 'red', fontSize: '15px', fontWeight: '700', transition: 'color 0.3s' }}>
-            {error}
-          </label>
-        )}
-        {phoneNumberError && (
-          <label style={{ color: 'red', fontSize: '15px', fontWeight: '700', transition: 'color 0.3s' }}>
-            {phoneNumberError}
-          </label>
-        )}
-      </div>
+  {error && !phoneNumberError && ( // Render email error only if there is no phone number error
+    <label style={{ color: 'red', fontSize: '15px', fontWeight: '700', transition: 'color 0.3s' }}>
+      {error}
+    </label>
+  )}
+  {phoneNumberError && ( // Always render phone number error
+    <label style={{ color: 'red', fontSize: '15px', fontWeight: '700', transition: 'color 0.3s' }}>
+      {phoneNumberError}
+    </label>
+  )}
+</div>
+
       <div>
         <h3 style={{ fontSize: '15px' }}>By clicking Sign up you agree to our Terms of Use and our Privacy Policy.</h3>
       </div>

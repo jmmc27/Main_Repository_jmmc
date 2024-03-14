@@ -8,6 +8,7 @@ import axios from "axios";
 
 function TeamC_ChapterSvn() {
   const [chapters, setChapters] = useState([]);
+  let count = 0;
 
   useEffect(() => {
     const fetchChapters = async () => {
@@ -33,6 +34,8 @@ function TeamC_ChapterSvn() {
 
        {chapters.map((chapter, idx) => {
         const {course_title, course_id} = chapter
+       
+        count++;
         console.log(course_title)
         return (
         <div key={idx} id="c_course_courses">
@@ -48,7 +51,7 @@ function TeamC_ChapterSvn() {
               </div>
               {/* Chapter Tag */}
               <div id="c_course_tag">
-                <span id="c_course_tagtext">CC_001</span>
+                <span id="c_course_tagtext">CC_00{count}</span>
               </div>
               {/* Chapter Card Body */}
               <div id="c_course_cardbody">

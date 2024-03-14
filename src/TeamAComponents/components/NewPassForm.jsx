@@ -9,7 +9,7 @@ function NewPassForm({closeNewPassModal, openLoginModal}) {
   const [showPassword, setShowPassword] = useState(false);
   const [newPasswordError, setNewPasswordError] = useState('');
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
- 
+  const [passwordValid, setPasswordValid] = useState(false); // Added state to track password validity
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
@@ -24,6 +24,41 @@ function NewPassForm({closeNewPassModal, openLoginModal}) {
     } else {
       setConfirmPasswordError('');
     }
+    validatePassword(newPassword, confirmedPassword); // Validate password when confirm password changes
+  };
+
+  const validatePassword = (newPasswordValue, confirmPasswordValue) => {
+    // Regular expressions for password requirements
+    const uppercaseRegex = /[A-Z]/;
+    const numericRegex = /\d/;
+    const symbolRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
+
+    let isValid = true;
+    let error = '';
+
+    if (newPasswordValue.length < 8) {
+      isValid = false;
+      error = 'Password must be at least 8 characters long.';
+    } else if (!uppercaseRegex.test(newPasswordValue)) {
+      isValid = false;
+      error = 'Password must contain at least 1 uppercase letter.';
+    } else if (!numericRegex.test(newPasswordValue)) {
+      isValid = false;
+      error = 'Password must contain at least 1 numeric character.';
+    } else if (!symbolRegex.test(newPasswordValue)) {
+      isValid = false;
+      error = 'Password must contain at least 1 symbol character.';
+    }
+
+    if (isValid) {
+      setNewPasswordError('');
+      setConfirmPasswordError('');
+    } else {
+      setNewPasswordError(error);
+      setConfirmPasswordError('');
+    }
+
+    setPasswordValid(isValid && newPasswordValue === confirmPasswordValue);
   };
 
   const handleSubmit = async (e) => {
@@ -34,7 +69,7 @@ function NewPassForm({closeNewPassModal, openLoginModal}) {
     const forgotCode = localStorage.getItem('forgotCode');
 
     // Perform your form submission here
-    if (newPassword === confirmPassword && newPassword.trim() !== '') {
+    if (passwordValid) { // Use passwordValid state to determine if password meets criteria
       console.log('Password match! Submitting...');
 
       try {
@@ -71,6 +106,7 @@ function NewPassForm({closeNewPassModal, openLoginModal}) {
       // Add your logic for passwords mismatch or empty fields
     }
   };
+
   return (
     <div className="email-forms-container" style={{ fontFamily: 'sans-serif' }}>
       <form className="template-form" onSubmit={handleSubmit}>
@@ -123,7 +159,16 @@ function NewPassForm({closeNewPassModal, openLoginModal}) {
           <span style={{ color: 'red', fontSize: '14px', marginTop: '15px', display: 'block' }}>{newPasswordError}</span>
         )}
 
-        <button className="TeamA-button" style={{ marginTop: '10px' }}>Confirm</button>
+        {newPassword.trim() !== '' && (
+          <span style={{ color: 'red', fontSize: '14px', marginTop: '15px', display: 'block' }}>
+            {newPassword.length < 8 ? 'Password must be at least 8 characters' : ''}
+            {/[A-Z]/.test(newPassword) ? '' : 'Password must contain at least 1 uppercase letter '}
+            {/\d/.test(newPassword) ? '' : 'Password must contain at least 1 numeric character '}
+            {/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(newPassword) ? '' : 'Password must contain at least 1 symbol '}
+          </span>
+        )}
+
+        <button className="TeamA-button" style={{ marginTop: '10px' }} disabled={!passwordValid}>Confirm</button>
       </form>
 
       <div className="email-panels-container">

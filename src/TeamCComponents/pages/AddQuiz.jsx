@@ -9,15 +9,15 @@ import { IoArrowBackCircleSharp } from "react-icons/io5";
 import axios from "axios";
 
 const AddQuiz = () => {
-    const navigate = useNavigate();
-  
+  const navigate = useNavigate();
+
   const goBack = () => {
-  navigate(-1);
+    navigate(-1);
   };
 
   // to save
   const [isSaved, setIsSaved] = useState([]);
-  
+
   const [inputData, setInputData] = useState({
     question: "",
     choice_1: "",
@@ -26,17 +26,15 @@ const AddQuiz = () => {
     correct_answer: "",
   });
 
-  const { question, choice_1, choice_2, choice_3, correct_answer} = inputData;
+  const { question, choice_1, choice_2, choice_3, correct_answer } = inputData;
 
   const handleInputChange = (e) => {
     setInputData({ ...inputData, [e.target.name]: e.target.value });
-   
   };
 
   const saveQuiz = async (e) => {
-    e.preventDefault()
-     
-  
+    e.preventDefault();
+
     try {
       await axios.post(`http://localhost:8080/api/v1/auth/question`, inputData);
       // showModal(false);
@@ -56,34 +54,62 @@ const AddQuiz = () => {
   };
   return (
     <>
-
-             
       <div className="teamcaddquizbody container mt-5">
-        {/* <Link onClick={() => goBack} className="buttonReturn d-flex align-items-center c_chapter_returncontainer" style={{ textDecoration: 'none', color: 'black', width: 'fit-content', }}> */}
-        <div className="d-flex align-items-center" style={{ marginTop: '1rem' }}>
-                    <div>
-                       <IoArrowBackCircleSharp className="btnReturn c_chapter_return" alt="return-icon" style={{
-                            transition: 'transform .1s', color: '#165207',
-                            marginLeft: '1rem', width: '2rem', height: '2rem',
-                        }}/>
-                    </div>
-                    <span className="returnTitle c_chapter_returnText" style={{ marginLeft: '0.5rem', color: '#126912', fontSize: '1.5rem', marginTop: '0rem', }}>Back</span>
-                </div>
-            {/* </Link> */}
+        <div
+          className="d-flex align-items-center"
+          style={{ marginTop: "1rem" }}
+        >
+          <button>
+            {/* Attach onClick event to the back button */}
+            <IoArrowBackCircleSharp
+              className="btnReturn c_chapter_return"
+              alt="return-icon"
+              style={{
+                transition: "transform .1s",
+                color: "#165207",
+                marginLeft: "1rem",
+                width: "2rem",
+                height: "2rem",
+              }}
+              onClick={goBack} // Attach goBack function here
+            />
+          </button>
+          <span
+            className="returnTitle c_chapter_returnText"
+            style={{
+              marginLeft: "0.5rem",
+              color: "#126912",
+              fontSize: "1.5rem",
+              marginTop: "0rem",
+            }}
+          >
+            Back
+          </span>
+        </div>
         <form className="p-3" onSubmit={saveQuiz}>
           <div className="">
             <div className="">
               <div className="d-flex justify-content-between align-items-center mb-3">
                 <span className="mr-auto">
-                  <p className="AddQuizTitle ml-3">Topic 1: Quiz</p>
-                </span>
-                <span className="">
-                  <button className="teamcquizbtn btn btn-lg btn-success roboto-bold mr-3 ">
-                    <IoIosAdd />
-                  </button>
+                  <input
+                    className="teambaddtitle form-control"
+                    placeholder="Title"
+                    name="choice_3"
+                  />
                 </span>
               </div>
+              <textarea
+                className="teamcadddesc form-control p-4 mb-4"
+                rows="5"
+                name="question"
+                placeholder="Add description"
+              />
             </div>
+            <span className="">
+              <button className="teamcquizbtn btn btn-lg btn-success roboto-bold mr-3 ">
+                <IoIosAdd />
+              </button>
+            </span>
 
             <div className="container text-center">
               <textarea
@@ -136,36 +162,42 @@ const AddQuiz = () => {
                   />
                 </div>
               </div>
-
             </div>
           </div>
           <div className="row justify-content-center">
-          <div className="d-flex justify-content-center align-items-center">
-            <span>
-              <button className="teamcquizbtnone btn btn-lg btn-success py- px-4 m-3 bg-op-6 roboto-bold">
-                <FaTrashAlt />
-              </button>
-            </span>
+            <div className="d-flex justify-content-center align-items-center">
+              <span>
+                <button className="teamcquizbtnone btn btn-lg btn-success py- px-4 m-3 bg-op-6 roboto-bold">
+                  <FaTrashAlt />
+                </button>
+              </span>
 
-            <span>
-            <button className="teamcquizbtntwo btn btn-lg btn-success py-2 px-4 m-3 bg-op-6 roboto-bold" type="submit" onClick={() => {
-                if (!question || !choice_1 || !choice_2 || !choice_3 || !correct_answer) {
-                    window.alert("Please fill in all fields before saving.");
-                    return false;
-                } else {
-                    window.alert("Save");
-                }
-            }}>
-                <IoIosSave />
-            </button>
-            </span>
+              <span>
+                <button
+                  className="teamcquizbtntwo btn btn-lg btn-success py-2 px-4 m-3 bg-op-6 roboto-bold"
+                  type="save"
+                  onClick={() => {
+                    if (
+                      !question ||
+                      !choice_1 ||
+                      !choice_2 ||
+                      !choice_3 ||
+                      !correct_answer
+                    ) {
+                      window.alert("Please fill in all fields before saving.");
+                      return false;
+                    } else {
+                      window.alert("Save");
+                    }
+                  }}
+                >
+                  <IoIosSave />
+                </button>
+              </span>
+            </div>
           </div>
-        </div>
         </form>
       </div>
-     
-      
-     
     </>
   );
 };

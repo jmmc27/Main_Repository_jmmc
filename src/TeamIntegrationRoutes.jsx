@@ -76,6 +76,8 @@ import TeamC_Topics from "./TeamCComponents/pages/Topics";
 import TeamC_QuizForm from "./TeamCComponents/pages/quizForm";
 import AssessmentQuiz from "./TeamCComponents/pages/AssessmentQuiz";
 import Component_MainContent from "./TeamCComponents/components/quiz_form";
+import StudentExamPage from "./TeamCComponents/pages/examination/student/s_examPage";
+import InstructorExamPage from "./TeamCComponents/pages/examination/instructor/i_examPage";
 
 
 // team D
@@ -145,6 +147,8 @@ function TeamIntegrationRoutes() {
           <Route path="/api/v1/auth/chapters/:id" element={<ChapterList />} />
           <Route path="/api/v1/auth/topics/:id" element={<TeamC_Topics />} />
           <Route path="/quizform" element={<TeamC_QuizForm />} />
+          <Route path="/api/v1/auth/studentexam/:id" element={<StudentExamPage />} />
+          <Route path="/instructorexam" element={<InstructorExamPage />} />
 
 
           {/* Team D */}

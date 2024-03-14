@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-  import "../styles/Auth.css";
+import "../styles/Auth.css";
 import TsukidenLogo from "/src/assets/TeamAassets/companyLogo.png";
 import Dropdown from "react-bootstrap/Dropdown";
 import { FaRegUserCircle } from "react-icons/fa";
@@ -10,6 +10,7 @@ import { TbCertificate } from "react-icons/tb";
 import { FiLogOut } from "react-icons/fi";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useAuth } from "./AuthContext"; // Import useAuth from your AuthContext
+import ProfileModal from "./ProfileModal";
 
 // Function to get user image type
 function getUserImageType(profilePicture) {
@@ -33,10 +34,19 @@ function getUserImageType(profilePicture) {
     }
   }
 
-const UserNavigation = ({ onUserDataFetched, openModal }) => {
+const UserNavigation = ({ onUserDataFetched}) => {
   const { isLoggedIn, handleLogout } = useAuth();
   const [clicked, setClicked] = useState(false);
   const [userData, setUserData] = useState({});
+  const [showProfileModal, setShowProfileModal] = useState(false); // State to control the visibility of the profile modal
+
+  const openProfileModal = () => {
+    setShowProfileModal(true); // Function to open the profile modal
+  };
+
+  const closeProfileModal = () => {
+    setShowProfileModal(false); // Function to close the profile modal
+  };
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -252,9 +262,10 @@ const UserNavigation = ({ onUserDataFetched, openModal }) => {
               {/* Dropdown menu */}
               <Dropdown.Menu>
                  {/* Profile dropdown item */}
-                <Dropdown.Item href="#" onClick={openModal}>
+                <Dropdown.Item href="#" onClick={openProfileModal}>
                   <FaRegUserCircle /> Profile
                 </Dropdown.Item>
+                <ProfileModal showModal={showProfileModal} handleClose={closeProfileModal} /> {/* Render the ProfileModal component */}
                 {/* Certificate dropdown item */}
                 <Dropdown.Item
                   as={NavLink} /* Render as NavLink for routing */

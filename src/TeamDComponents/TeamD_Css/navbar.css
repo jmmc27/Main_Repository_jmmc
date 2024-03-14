@@ -112,15 +112,19 @@
     margin-right: 50px; /* Margin */
 }
 
+
+
 /* Styles for last dropdown item in profile */
 .profile_side .dropdown-menu.show .dropdown-item:last-child {
     color:#BF3131 !important; /* Text color */
+    text-decoration: none;
 }
 
 /* Hover and active styles for last dropdown item */
 .profile_side  .dropdown-menu.show .dropdown-item:last-child:hover,
 .profile_side  .dropdown-menu.show .dropdown-item:last-child:active {
     color:#fd0f0f !important; /* Text color on hover and active */
+    text-decoration: none;
 }
 
 /* Hover styles for dropdown items */
@@ -143,6 +147,10 @@
 /* Styles for profile link */
 .profile_link {
     display: none; /* Hide by default */
+}
+
+.logoutmodal-overlay {
+    z-index: 1000;
 }
 
 /* Media query for smaller screens */

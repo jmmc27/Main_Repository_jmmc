@@ -16,12 +16,41 @@
     padding: 10px;
   }
 
+  .teambaddtitle {
+    margin-left: 10px;
+    background-color: #e0f8d9;
+    color: black;
+    width: 480px;
+  }
+
+  .teamcadddesc {
+    margin-left: 10px;
+    width: 945px;
+    height: 100px;
+  }
+
+  .teamcadddesc {
+    background-color: #e0f8d9;
+    color: black;
+  }
+
+  .teamcadddesc:focus {
+    background-color: #ebffe5;
+  }
+
+  .teambaddtitle:focus {
+    background-color: #ebffe5;
+  }
+
   .teamcquizbtn {
     background-color: #165207; /* Green background color */
     color: #fff; /* White text color */
     border-color: #165207; /* Green border color */
     transition: background-color 0.3s ease; /* Smooth transition for background color */
     text-align: left; /* Align the text to the left */
+    margin-left: 905px;
+    margin-bottom: 10px;
+
     /* margin-left: 1070px;
     margin-bottom: 10px;
     width: auto; */

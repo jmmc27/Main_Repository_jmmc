@@ -305,6 +305,7 @@ background-color: gray;
   text-align: left;  /* Align text to the left within the input field */
 }
 
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .template-form {
@@ -1114,10 +1115,14 @@ input::placeholder{
 /*remember me button*/
 .remember-me {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 90px;
-  gap: 10px;
+  gap: 5px;
+  width: 76%;
+
+}
+
+#rememberMe{
+  width: 20px;
+  height: 20px;
 }
 
 .remember-me .rememberMe_input {

@@ -21,7 +21,8 @@ const CustomModal = ({ show, handleClose, children }) => {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backdropFilter: show ? 'blur(5px)' : 'none', 
+      backdropFilter: show ? 'blur(5px)' : 'none',
+      zIndex: 1000, 
     },
     modalContent: {
       position: 'relative',

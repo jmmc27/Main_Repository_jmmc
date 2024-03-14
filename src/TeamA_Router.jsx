@@ -33,7 +33,6 @@ function TeamA_Router() {
         <Route path="/about" element={<About />} />
         <Route path="/email" element={<Email/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
-
       </Routes>
   
     </>

@@ -1,0 +1,77 @@
+#parentExamContent {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    color: #0e3b03;
+    background-color: #D9FFCF;
+    text-align: center;
+    overflow: visible;
+    border: 2px solid;
+    border-color: #0e3b03;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+
+#childExamContent{
+    font-size: 18px; 
+    color: #0e3b03;
+    background-color: #D9FFCF; 
+    text-align: left;
+    overflow: visible; 
+    margin-top: 1rem;
+    margin-bottom: 1.1rem;
+    margin-left: 1rem;
+}
+
+#childStudentsPage{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+#btnContainer {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+    margin: 0.5rem;
+}
+
+#btnAddQuestion{
+    margin: 0.5rem;
+    border-radius: 10px;
+    background-color: #0e3b03;
+    color: white;
+    border-width: 2px;
+    font-size: 1.3rem;
+}
+
+#modalBody{
+    background-color: #ebffe5;
+    color: black;
+}
+
+#questionContainer{
+    margin-top: 3rem;
+}
+
+#inputQuizTitle{
+    width: 50rem;
+}
+
+#inputQuizQuestion{
+    width: 40rem;
+    margin-bottom: 1.3rem;
+}
+
+#inputQuizChoices1,
+#inputQuizChoices2,
+#inputQuizChoices3,
+#inputQuizChoices4{
+    margin-top: 2rem;
+    width: 30rem;
+}

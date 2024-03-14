@@ -13,10 +13,12 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 import { FaArrowUp } from "react-icons/fa";
 import NoCert from "../TeamDComponents/TeamD_Assets/undraw_learning_re_32qv.svg";
-import { Spinner } from 'react-bootstrap';
+import { Spinner } from "react-bootstrap";
 import Team_D_HeaderV2 from "./Team_D_HeaderV2";
-
-//updated code as of 2/28/24 -jake
+import { Tab, Tabs } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { Pagination } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Set up PDF.js worker source
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
@@ -32,18 +34,40 @@ const Team_D_Content = () => {
   const [overlayVisibilities, setOverlayVisibilities] = useState([]);
   const [disableViewButtons, setDisableViewButtons] = useState([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769); // Check if the viewport width is less than 769
-  const value = localStorage.getItem('userId');
+  const value = localStorage.getItem("userId");
+
+  const [DateIssued, setDateIssued] = useState("recent"); // Initialize with default value
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8); // Change this value according to your preference
+
+  useEffect(() => {
+    handleCategoryChange(DateIssued); // Trigger filtering on initial render
+  }, [pdfFileNames]); // Trigger filtering when pdfFileNames changes
+
+  const handleCategoryChange = (value) => {
+    setDateIssued(value);
+    if (value === "recent") {
+      // Filter recent certificates
+      const filtered = pdfFileNames.filter(
+        (cert) => FilterDate(cert.date_issued) === "recent"
+      );
+      setFilteredCertificates(filtered);
+    } else {
+      // Display all certificates
+      setFilteredCertificates(pdfFileNames);
+    }
+  };
 
   if (value !== null) {
     // Value exists, you can use it
     console.log("User is online!");
   } else {
     // Value does not exist
-    console.log('Value not found for the specified key.');
+    console.log("Value not found for the specified key.");
   }
 
-   // State to store the search term
-   const [searchTerm, setSearchTerm] = useState(
+  // State to store the search term
+  const [searchTerm, setSearchTerm] = useState(
     localStorage.getItem("searchTerm") || ""
   );
 
@@ -71,7 +95,6 @@ const Team_D_Content = () => {
   // Fetch PDF file names from API
   const fetchPdfFileNamesFromApi = async () => {
     try {
-      // Replace 'apiEndpoint' with your actual API endpoint to fetch PDF file names
       const response = await fetch(
         `http://localhost:8080/api/v1/auth/myCertification/${value}`
       );
@@ -84,6 +107,40 @@ const Team_D_Content = () => {
     }
   };
 
+  //use this when its by week basis
+  const FilterDate = (date_issued) => {
+    const issuedDate = new Date(date_issued);
+    const today = new Date();
+
+    // Calculate the difference in days
+    const differenceInDays = Math.floor(
+      (today - issuedDate) / (1000 * 60 * 60 * 24)
+    );
+
+    // Check if the certificate was issued within the same week
+    if (differenceInDays <= 7) {
+      return "recent";
+    } else {
+      return "not_recent";
+    }
+  };
+
+  //use this if recent is par day basis
+  // const FilterDate = (date_issued) => {
+  //   const issuedDate = new Date(date_issued);
+  //   const today = new Date();
+
+  //   if (
+  //     issuedDate.getFullYear() === today.getFullYear() &&
+  //     issuedDate.getMonth() === today.getMonth() &&
+  //     issuedDate.getDate() === today.getDate()
+  //   ) {
+  //     return "recent";
+  //   } else {
+  //     return "not_recent";
+  //   }
+  // };
+
   // Function to handle the search based on the current search term
   const handleSearch = () => {
     // Convert the search term to lowercase for case-insensitive comparison
@@ -91,20 +148,22 @@ const Team_D_Content = () => {
 
     // Filter certificates based on the search term
     const filtered = pdfFileNames.filter((cert) =>
-      cert.finalScore.enrollment.course.course_title.toLowerCase().includes(searchTermLower)
+      cert.finalScore.enrollment.course.course_title
+        .toLowerCase()
+        .includes(searchTermLower)
     );
 
     // Set the filtered certificates in the state
     setFilteredCertificates(filtered);
   };
   // Function to handle clearing the search term and updating filtered certificates
-const handleClearSearch = () => {
-  // Clear the search term
-  setSearchTerm("");
+  const handleClearSearch = () => {
+    // Clear the search term
+    setSearchTerm("");
 
-  // Display all certificates
-  setFilteredCertificates(pdfFileNames);
-};
+    // Display all certificates
+    setFilteredCertificates(pdfFileNames);
+  };
 
   // Effect hook to update the filtered certificates when the search term changes
   useEffect(() => {
@@ -146,7 +205,7 @@ const handleClearSearch = () => {
 
           const renderContext = {
             canvasContext: context,
-            viewport: viewport
+            viewport: viewport,
           };
 
           await page.render(renderContext).promise;
@@ -177,7 +236,7 @@ const handleClearSearch = () => {
     const handleOnline = () => {
       setShowNotification({
         type: "info",
-        message: "You are back online! You can now download certificates."
+        message: "You are back online! You can now download certificates.",
       });
 
       setTimeout(() => {
@@ -188,7 +247,7 @@ const handleClearSearch = () => {
     const handleOffline = () => {
       setShowNotification({
         type: "danger",
-        message: "You are currently offline. Please connect to the internet."
+        message: "You are currently offline. Please connect to the internet.",
       });
 
       setTimeout(() => {
@@ -228,7 +287,7 @@ const handleClearSearch = () => {
       setShowNotification({
         type: "danger",
         message:
-          "You are currently offline. Please connect to the internet and try again."
+          "You are currently offline. Please connect to the internet and try again.",
       });
       setTimeout(() => {
         setShowNotification(null);
@@ -247,14 +306,14 @@ const handleClearSearch = () => {
     link.addEventListener("abort", () => {
       setShowNotification({
         type: "danger",
-        message: "Download aborted. Please try again."
+        message: "Download aborted. Please try again.",
       });
     });
 
     link.addEventListener("error", () => {
       setShowNotification({
         type: "danger",
-        message: "Error during download. Please try again."
+        message: "Error during download. Please try again.",
       });
     });
 
@@ -264,7 +323,7 @@ const handleClearSearch = () => {
     // Show download success notification
     setShowNotification({
       type: "success",
-      message: "Download successful!"
+      message: "Download successful!",
     });
 
     // Disable download button temporarily and reset state after 5 seconds
@@ -331,7 +390,7 @@ const handleClearSearch = () => {
     // Show notification about disabled view
     setShowNotification({
       type: "info",
-      message: "Viewing is disabled for 5 seconds."
+      message: "Viewing is disabled for 5 seconds.",
     });
 
     // Disable view button temporarily and reset state after 5 seconds
@@ -358,6 +417,17 @@ const handleClearSearch = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Determine total pages
+  const totalPages = Math.ceil(filteredCertificates.length / itemsPerPage);
+
+  // Calculate indexes of items for current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredCertificates.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
   // Tooltip for view button
   const viewTooltip = <Tooltip id="viewTooltip">View Certificate</Tooltip>;
   // Tooltip for download button
@@ -368,6 +438,14 @@ const handleClearSearch = () => {
   // Determine whether to show scroll to top button based on scroll position
   const shouldShowScrollToTop = window.scrollY > 200;
 
+  // Define custom CSS classes
+  const paginationClasses = {
+    pagination: "pagination-custom",
+    active: "active-custom",
+    item: "item-custom",
+    prev: "prev-custom",
+    next: "next-custom",
+  };
   // JSX rendering
   return (
     <div>
@@ -376,162 +454,362 @@ const handleClearSearch = () => {
         {/* Section containing search bar */}
         <section className="withSearchBar">
           <h1>Certificates</h1>
-
           <InputGroup expand="lg" size="sm" className="float-right">
-  <Form.Control
-    type="text"
-    placeholder="Search here..."
-    aria-label="Recipient's username"
-    aria-describedby="basic-addon2"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    onKeyPress={(e) => {
-      if (e.key === "Enter") {
-        // Handle the "Enter" key press, e.g., trigger the verification function
-        handleSearch();
-      }
-    }}
-    className="TeamD_search-input" // Add a class for styling
-  />
-  {searchTerm && (
-    <OverlayTrigger
-      placement="top"
-      overlay={<Tooltip className="clear-tooltip">Clear</Tooltip>}
-    >
-      <InputGroup.Text
-        className="TeamD_icon_search_icon-container"
-        onClick={handleClearSearch} // Correctly bind the function to onClick
-      >
-        <span>
-          <FiX className="TeamD_icon_clear_search_icon" />
-        </span>
-      </InputGroup.Text>
-    </OverlayTrigger>
-  )}
-  <InputGroup.Text className="TeamD_icon_search_icon-container">
-    <span>
-      <FiSearch className="TeamD_icon_search_icon" />
-    </span>
-  </InputGroup.Text>
-</InputGroup>
+            <Form.Control
+              type="text"
+              placeholder="Search here..."
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  // Handle the "Enter" key press, e.g., trigger the verification function
+                  handleSearch();
+                }
+              }}
+              className="TeamD_search-input" // Add a class for styling
+            />
+            {searchTerm && (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip className="clear-tooltip">Clear</Tooltip>}
+              >
+                <InputGroup.Text
+                  className="TeamD_icon_search_icon-container"
+                  onClick={handleClearSearch} // Correctly bind the function to onClick
+                >
+                  <span>
+                    <FiX className="TeamD_icon_clear_search_icon" />
+                  </span>
+                </InputGroup.Text>
+              </OverlayTrigger>
+            )}
+            <InputGroup.Text className="TeamD_icon_search_icon-container">
+              <span>
+                <FiSearch className="TeamD_icon_search_icon" />
+              </span>
+            </InputGroup.Text>
+          </InputGroup>
         </section>
         <div className="hr"></div> {/* Horizontal rule */}
+        <Container className="TeamD_Tab">
+          {/* select if show all certificates or only the recent */}
+          <Row>
+            <Tabs
+              id="date_issued"
+              activeKey={DateIssued}
+              onSelect={(selectedKey) => {
+                console.log("Selected value:", selectedKey); // Add console.log statement here
+                handleCategoryChange(selectedKey);
+              }}
+            >
+              <Tab eventKey="recent" title="Recent"></Tab>
+              <Tab eventKey="" title="All"></Tab>
+            </Tabs>
+          </Row>
+        </Container>
       </section>
       {/* Section for displaying certificates */}
       <section className="certificates">
         {/* Conditionally render certificates or no certificates message */}
-        {filteredCertificates.length > 0 ? (
-          filteredCertificates.map((pdfFile, index) => (
-            <div
-              className="certificate_thumbnail"
-              key={index}
-              onMouseEnter={() =>
-                setOverlayVisibilities((prevVisibilities) =>
-                  prevVisibilities.map((visibility, idx) =>
-                    idx === index ? true : visibility
-                  )
-                )
-              }
-              onMouseLeave={() =>
-                setOverlayVisibilities((prevVisibilities) =>
-                  prevVisibilities.map((visibility, idx) =>
-                    idx === index ? false : visibility
-                  )
-                )
-              }
-            >
-              {/* Render certificate thumbnail */}
-              <div className="cert">
-                {isMobile && thumbnails[index] ? (
-                  <Link
-                    to="/viewCert"
-                    state={{
-                      pdfName: pdfFile.certificate_file,
-                      courseTitle: pdfFile.finalScore.enrollment.course.course_title
-                    }}
-                    id={`viewLink_${index}`}
-                  >
-                    <div className="overlay"></div>
-                    <img src={thumbnails[index]} alt="PDF Thumbnail" />
-                  </Link>
-                ) : !isMobile && thumbnails[index] ? (
-                  <img src={thumbnails[index]} alt="PDF Thumbnail" />
-                ) : (
-                  <p className="TeamD_loading-spinner"><Spinner/> <br/>
-                  Loading.. </p>
-                )}
+        {DateIssued === "recent" ? (
+          // Render recent certificates without pagination
+          <>
+            {filteredCertificates.length > 0 ? (
+              filteredCertificates.slice(0, 5).map((pdfFile, index) => (
+                // Render certificate item
+                <div
+                  className="certificate_thumbnail"
+                  key={index}
+                  onMouseEnter={() =>
+                    setOverlayVisibilities((prevVisibilities) =>
+                      prevVisibilities.map((visibility, idx) =>
+                        idx === index ? true : visibility
+                      )
+                    )
+                  }
+                  onMouseLeave={() =>
+                    setOverlayVisibilities((prevVisibilities) =>
+                      prevVisibilities.map((visibility, idx) =>
+                        idx === index ? false : visibility
+                      )
+                    )
+                  }
+                >
+                  {/* Render certificate thumbnail */}
+                  <div className="cert">
+                    {isMobile && thumbnails[index] ? (
+                      <Link
+                        to="/viewCert"
+                        state={{
+                          pdfName: pdfFile.certificate_file,
+                          courseTitle:
+                            pdfFile.finalScore.enrollment.course.course_title,
+                        }}
+                        id={`viewLink_${index}`}
+                      >
+                        <div className="overlay"></div>
+                        <img src={thumbnails[index]} alt="PDF Thumbnail" />
+                      </Link>
+                    ) : !isMobile && thumbnails[index] ? (
+                      <img src={thumbnails[index]} alt="PDF Thumbnail" />
+                    ) : (
+                      <p className="TeamD_loading-spinner">
+                        <Spinner /> <br />
+                        Loading..{" "}
+                      </p>
+                    )}
 
-                {/* Render overlay with view and download buttons */}
-                {!isMobile && (
-                  <div
-                    className={`overlay${
-                      overlayVisibilities[index] ? " visible" : ""
-                    }`}
-                  >
-                    {thumbnails[index] && (
-                      <div className="buttons">
-                        {/* View button */}
-                        <Link
-                          id={`viewLink_${index}`}
-                          to="/viewCert"
-                          state={{
-                            pdfName: pdfFile.certificate_file,
-                            courseTitle: pdfFile.finalScore.enrollment.course.course_title
-                          }}
-                        >
-                          <OverlayTrigger placement="top" overlay={viewTooltip}>
-                            <button
-                              id={`viewButton_${index}`}
-                              className="view"
-                              style={{
-                                pointerEvents: overlayVisibilities[index]
-                                  ? "auto"
-                                  : "none"
+                    {/* Render overlay with view and download buttons */}
+                    {!isMobile && (
+                      <div
+                        className={`overlay${
+                          overlayVisibilities[index] ? " visible" : ""
+                        }`}
+                      >
+                        {thumbnails[index] && (
+                          <div className="buttons">
+                            {/* View button */}
+                            <Link
+                              id={`viewLink_${index}`}
+                              to="/viewCert"
+                              state={{
+                                pdfName: pdfFile.certificate_file,
+                                courseTitle:
+                                  pdfFile.finalScore.enrollment.course
+                                    .course_title,
                               }}
-                              onClick={handleViewClick(index)}
                             >
-                              <BiFileFind className="TeamD_icon view_icon" />
-                            </button>
-                          </OverlayTrigger>
-                        </Link>
-                        {/* Download button */}
-                        <OverlayTrigger
-                          placement="top"
-                          overlay={downloadTooltip}
-                        >
-                          <button
-                            className="download"
-                            style={{
-                              pointerEvents: overlayVisibilities[index]
-                                ? "auto"
-                                : "none"
-                            }}
-                            onClick={handleDownloadClick(index)}
-                            disabled={
-                              !enableViewButtons[index] ||
-                              disableDownloadButtons[index]
-                            }
-                          >
-                            <MdOutlineFileDownload className="TeamD_icon download_icon" />
-                          </button>
-                        </OverlayTrigger>
+                              <OverlayTrigger
+                                placement="top"
+                                overlay={viewTooltip}
+                              >
+                                <button
+                                  id={`viewButton_${index}`}
+                                  className="view"
+                                  style={{
+                                    pointerEvents: overlayVisibilities[index]
+                                      ? "auto"
+                                      : "none",
+                                  }}
+                                  onClick={handleViewClick(index)}
+                                >
+                                  <BiFileFind className="TeamD_icon view_icon" />
+                                </button>
+                              </OverlayTrigger>
+                            </Link>
+                            {/* Download button */}
+                            <OverlayTrigger
+                              placement="top"
+                              overlay={downloadTooltip}
+                            >
+                              <button
+                                className="download"
+                                style={{
+                                  pointerEvents: overlayVisibilities[index]
+                                    ? "auto"
+                                    : "none",
+                                }}
+                                onClick={handleDownloadClick(index)}
+                                disabled={
+                                  !enableViewButtons[index] ||
+                                  disableDownloadButtons[index]
+                                }
+                              >
+                                <MdOutlineFileDownload className="TeamD_icon download_icon" />
+                              </button>
+                            </OverlayTrigger>
+                          </div>
+                        )}
                       </div>
                     )}
                   </div>
-                )}
+                  {/* Display course title */}
+                  <p className="TeamD_certificate_courseTitle">
+                    {pdfFile.finalScore.enrollment.course.course_title}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <div className="no-certificates">
+                {/* Render no certificates message */}
+                <img src={NoCert} alt="No certification yet" /> No certificate
+                available.
               </div>
-              {/* Display course title */}
-              <p className="TeamD_certificate_courseTitle">
-                {pdfFile.finalScore.enrollment.course.course_title}
-              </p>
-            </div>
-          ))
+            )}
+          </>
         ) : (
-          <div className="no-certificates">
-            {/* Render no certificates message */}
-            <img src={NoCert} alt="No certification yet" /> No certificate
-            available.
-          </div>
+          // Render all certificates with pagination
+          <>
+            {filteredCertificates.length > 0 ? (
+              <>
+                {/* Print all certificates based on pagination */}
+                {filteredCertificates
+                  .slice((currentPage - 1) * 8, currentPage * 8)
+                  .map((pdfFile, index) => (
+                    // Render certificate item
+                    <div
+                      className="certificate_thumbnail"
+                      key={index}
+                      onMouseEnter={() =>
+                        setOverlayVisibilities((prevVisibilities) =>
+                          prevVisibilities.map((visibility, idx) =>
+                            idx === index ? true : visibility
+                          )
+                        )
+                      }
+                      onMouseLeave={() =>
+                        setOverlayVisibilities((prevVisibilities) =>
+                          prevVisibilities.map((visibility, idx) =>
+                            idx === index ? false : visibility
+                          )
+                        )
+                      }
+                    >
+                      {/* Render certificate thumbnail */}
+                      <div className="cert">
+                        {isMobile && thumbnails[index] ? (
+                          <Link
+                            to="/viewCert"
+                            state={{
+                              pdfName: pdfFile.certificate_file,
+                              courseTitle:
+                                pdfFile.finalScore.enrollment.course
+                                  .course_title,
+                            }}
+                            id={`viewLink_${index}`}
+                          >
+                            <div className="overlay"></div>
+                            <img src={thumbnails[index]} alt="PDF Thumbnail" />
+                          </Link>
+                        ) : !isMobile && thumbnails[index] ? (
+                          <img src={thumbnails[index]} alt="PDF Thumbnail" />
+                        ) : (
+                          <p className="TeamD_loading-spinner">
+                            <Spinner /> <br />
+                            Loading..{" "}
+                          </p>
+                        )}
+
+                        {/* Render overlay with view and download buttons */}
+                        {!isMobile && (
+                          <div
+                            className={`overlay${
+                              overlayVisibilities[index] ? " visible" : ""
+                            }`}
+                          >
+                            {thumbnails[index] && (
+                              <div className="buttons">
+                                {/* View button */}
+                                <Link
+                                  id={`viewLink_${index}`}
+                                  to="/viewCert"
+                                  state={{
+                                    pdfName: pdfFile.certificate_file,
+                                    courseTitle:
+                                      pdfFile.finalScore.enrollment.course
+                                        .course_title,
+                                  }}
+                                >
+                                  <OverlayTrigger
+                                    placement="top"
+                                    overlay={viewTooltip}
+                                  >
+                                    <button
+                                      id={`viewButton_${index}`}
+                                      className="view"
+                                      style={{
+                                        pointerEvents: overlayVisibilities[
+                                          index
+                                        ]
+                                          ? "auto"
+                                          : "none",
+                                      }}
+                                      onClick={handleViewClick(index)}
+                                    >
+                                      <BiFileFind className="TeamD_icon view_icon" />
+                                    </button>
+                                  </OverlayTrigger>
+                                </Link>
+                                {/* Download button */}
+                                <OverlayTrigger
+                                  placement="top"
+                                  overlay={downloadTooltip}
+                                >
+                                  <button
+                                    className="download"
+                                    style={{
+                                      pointerEvents: overlayVisibilities[index]
+                                        ? "auto"
+                                        : "none",
+                                    }}
+                                    onClick={handleDownloadClick(index)}
+                                    disabled={
+                                      !enableViewButtons[index] ||
+                                      disableDownloadButtons[index]
+                                    }
+                                  >
+                                    <MdOutlineFileDownload className="TeamD_icon download_icon" />
+                                  </button>
+                                </OverlayTrigger>
+                              </div>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                      {/* Display course title */}
+                      <p className="TeamD_certificate_courseTitle">
+                        {pdfFile.finalScore.enrollment.course.course_title}
+                      </p>
+                    </div>
+                  ))}
+              </>
+            ) : (
+              <div className="no-certificates">
+                {/* Render no certificates message */}
+                <img src={NoCert} alt="No certification yet" /> No certificate
+                available.
+              </div>
+            )}
+            {/* Render pagination controls */}
+            <Container>
+              {totalPages > 1 && (
+                <div className="flex justify-center mt-4">
+                  <Pagination className={paginationClasses.pagination}>
+                    <Pagination.Prev
+                      className={paginationClasses.prev}
+                      onClick={() =>
+                        setCurrentPage((prevPage) =>
+                          prevPage > 1 ? prevPage - 1 : prevPage
+                        )
+                      }
+                      disabled={currentPage === 1}
+                    />
+                    {Array.from({ length: totalPages }, (_, i) => (
+                      <Pagination.Item
+                        key={i}
+                        active={currentPage === i + 1}
+                        onClick={() => setCurrentPage(i + 1)}
+                        className={paginationClasses.item}
+                      >
+                        {i + 1}
+                      </Pagination.Item>
+                    ))}
+                    <Pagination.Next
+                      className={paginationClasses.next}
+                      onClick={() =>
+                        setCurrentPage((prevPage) =>
+                          prevPage < totalPages ? prevPage + 1 : prevPage
+                        )
+                      }
+                      disabled={currentPage === totalPages}
+                    />
+                  </Pagination>
+                </div>
+              )}
+            </Container>
+          </>
         )}
       </section>
       {/* Render notification */}
@@ -544,7 +822,7 @@ const handleClearSearch = () => {
             position: "fixed",
             top: "10px",
             right: "10px",
-            zIndex: 1000
+            zIndex: 1000,
           }}
         >
           {showNotification.message}
@@ -564,11 +842,18 @@ const handleClearSearch = () => {
           borderRadius: "100px",
           border: "1px solid #ccc",
           background: "#fff",
-          padding: "15px"
+          padding: "15px",
         }}
       >
         <FaArrowUp />
       </div>
+      {/* for mapping of date_issued removed showing mapping since it affects scroll to top button*/}
+      {pdfFileNames.map((fil, idx) => {
+        const { date_issued } = fil;
+        const recent = FilterDate(date_issued) === "recent"; // Check if it's recent
+        console.log("Certificate date:", date_issued, "Is recent?", recent);
+        return null; // Hide other JSX elements
+      })}
     </div>
   );
 };
