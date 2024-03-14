@@ -39,13 +39,14 @@
 
 @media only screen and (max-width: 768px) {
     .c_chapter_rtrncontainer{
-        margin-top: 30px;
+        margin-top: 40px;
         margin-left: 5px;
     }
 
     .c_crs_ttl {
-        margin-left: 40px;
+        margin-left: 50px;
         font-size: 1rem;
+        margin-top: -50px;
     }
 }
 

@@ -39,7 +39,7 @@ function ChapterList() {
                 <div>
                     <IoArrowBackCircleSharp className="btnReturn c_chapter_return" alt="return-icon" style={{
                             transition: 'transform .1s', color: '#165207',
-                            marginLeft: '1rem', width: '2rem', height: '2rem',
+                            marginLeft: '1rem', width: '2.5rem', height: '2.5rem',
                     }}/>
                 </div>
                 <span className="returnTitle c_chapter_returnText" style={{ marginLeft: '0.5rem', color: '#126912', fontSize: '1.5rem', marginTop: '0rem', }}></span>

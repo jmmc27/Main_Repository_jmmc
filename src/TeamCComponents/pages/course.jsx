@@ -29,8 +29,7 @@ function TeamC_ChapterSvn() {
       <Team_D_HeaderV2 />
       <div className="container mt-4 mx-auto" id="c_course_maincontainer">
         {/* Program Overview Title */}
-        <h2 className="text-center mb-3" style={{ fontWeight: 'bold', fontSize: '2rem' }}>Program Overview</h2>
-        <hr className="lnf" />
+        <h2 className="text-center mb-4" style={{ fontWeight: 'bold', fontSize: '2rem'}}>My Courses</h2>
 
        {chapters.map((chapter, idx) => {
         const {course_title, course_id} = chapter

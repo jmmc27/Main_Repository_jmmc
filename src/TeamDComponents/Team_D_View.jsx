@@ -193,17 +193,18 @@ const Team_D_View = () => {
               </Modal.Header>
               <Modal.Body>
                 <p>
-                  Passing Score: Minimum score of 80% or higher is required.
+                  Passing Score:
                 </p>
                 <p>
                   {/* Replace data properties with appropriate values */}
-                  Quizzes Scores {/* data.quizzes */}
                   <br />
-                  Quiz 1: {/* quiz1 */}
-                  <br />
-                  Quiz 2: {/* data.quiz2 */}
+                  Overall Quiz Average: {/* quiz1 */}
                   <br />
                   Assesment Score:
+                </p>
+                <p>
+                  <br />
+                  Average:
                 </p>
               </Modal.Body>
             </Modal>
