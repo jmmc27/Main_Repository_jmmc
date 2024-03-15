@@ -134,12 +134,14 @@ const EditTopic = ({ topicId, courseTitle, chapterTitle }) => {
       {/* add topic title */}
       <form
         onSubmit={handleSubmit}
-        className="h-[100vh] w-[100%]  relative pt-2">
+        className="h-[100vh] w-[100%]  relative pt-2"
+      >
         <div className="flex items-center justify-end w-full ">
           <button
             type="submit"
             className="flex items-center gap-2 pr-5 cursor-pointer"
-            onClick={() => addToCartNotify()}>
+            onClick={() => addToCartNotify()}
+          >
             <div className="text-[#4c604c] text-[1.5rem]">
               <FaSave />
             </div>
@@ -181,13 +183,15 @@ const EditTopic = ({ topicId, courseTitle, chapterTitle }) => {
           <div
             className="relative w-[100%] h-[200px] md:w-[50%]
            lg:w-[20vw] lg:h-[20vh] bg-[#fff] rounded-lg flex items-center
-            justify-center cursor-pointer">
+            justify-center cursor-pointer"
+          >
             {/* <img src={EditTopiclink} alt="" className="" /> */}
             <iframe
               src={topic_link}
               frameborder="0"
               scrolling="no"
-              className="blur-[.05rem] h-[200px] md:w-full  lg:w-[20vw] lg:h-[20vh] hidden md:flex"></iframe>
+              className="blur-[.05rem] h-[200px] md:w-full  lg:w-[20vw] lg:h-[20vh] hidden md:flex"
+            ></iframe>
 
             <div className="absolute flex gap-x-5">
               <span className="" onClick={toggleVideoPopup}>
@@ -195,26 +199,12 @@ const EditTopic = ({ topicId, courseTitle, chapterTitle }) => {
               </span>
               <span
                 className=""
-                onClick={() => setShowEmbedded((prev) => !prev)}>
+                onClick={() => setShowEmbedded((prev) => !prev)}
+              >
                 <IoEyeSharp className="w-[30px] h-[30px] lg:w-[30px] lg:h-[30px]  " />
               </span>
             </div>
           </div>
-
-          <Link
-            to="/AddQuiz"
-            className=" relative w-[100%] h-[200px]  md:w-[50%]
-           lg:w-[20vw] lg:h-[20vh] bg-[#fff] rounded-lg flex
-           items-center justify-center cursor-pointer">
-            {/* <iframe
-              src={topic_link}
-              frameborder="0"
-              scrolling="no"
-              className="blur-[.05rem] h-[200px]  hidden lg:flex"></iframe> */}
-            <span className="absolute ">
-              <FaEdit className="w-[30px] h-[30px] lg:w-[30px] lg:h-[30px]  opacity-[80%]" />
-            </span>
-          </Link>
         </div>
 
         {/* Video Popup */}
@@ -243,12 +233,14 @@ const EditTopic = ({ topicId, courseTitle, chapterTitle }) => {
                 {/* Button container */}
                 <button // Cancel button
                   onClick={handleVideoCancelClick}
-                  className="px-4 py-2 text-black rounded-md">
+                  className="px-4 py-2 text-black rounded-md"
+                >
                   Cancel
                 </button>
                 <button // Done button
                   onClick={handleVideoDoneClick}
-                  className="bg-[#126912] text-white py-2 px-4 rounded-full ml-2">
+                  className="bg-[#126912] text-white py-2 px-4 rounded-full ml-2"
+                >
                   Done
                 </button>
               </div>
@@ -262,14 +254,16 @@ const EditTopic = ({ topicId, courseTitle, chapterTitle }) => {
             <div className="w-[90%] h-[50vh] md:h-[40vh] lg:w-[700px] lg:h-[450px] pb-2 bg-[#BCE8B1] flex flex-col justify-center items-center  rounded-lg">
               <div
                 className="flex justify-end w-full pb-3 pr-2 cursor-pointer"
-                onClick={() => setShowEmbedded(false)}>
+                onClick={() => setShowEmbedded(false)}
+              >
                 <IoMdClose className="text-[1.5rem]" />
               </div>
               <iframe
                 src={topic_link}
                 frameborder="0"
                 scrolling="no"
-                className="blur-[.01rem] w-[90%] h-[80%] md:w-[500px] md:h-[350px] lg:w-[680px] lg:h-[450px] rounded-lg"></iframe>
+                className="blur-[.01rem] w-[90%] h-[80%] md:w-[500px] md:h-[350px] lg:w-[680px] lg:h-[450px] rounded-lg"
+              ></iframe>
             </div>
           </div>
         )}

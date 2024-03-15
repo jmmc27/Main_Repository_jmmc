@@ -153,7 +153,8 @@ const AddTopic = ({ courseTitle }) => {
               <div className="flex items-center justify-end w-full ">
                 <button
                   type="submit"
-                  className="flex items-center gap-2 pr-5 cursor-pointer">
+                  className="flex items-center gap-2 pr-5 cursor-pointer"
+                >
                   <div className="text-[#4c604c] text-[1.5rem]">
                     <FaSave />
                   </div>
@@ -197,14 +198,16 @@ const AddTopic = ({ courseTitle }) => {
                   className="relative w-[100%] h-[200px] md:w-[50%]
            lg:w-[20vw] lg:h-[20vh] bg-[#126912] rounded-lg flex items-center
             justify-center cursor-pointer"
-                  onClick={toggleVideoPopup}>
+                  onClick={toggleVideoPopup}
+                >
                   <img src={vidUpload} alt="" className="md:w-[3rem] " />
                 </div>
                 <Link
                   to="/AddQuiz"
                   className=" relative w-[100%] h-[200px] md:w-[50%]
            lg:w-[20vw] lg:h-[20vh] bg-[#126912] rounded-lg flex
-           items-center justify-center cursor-pointer">
+           items-center justify-center cursor-pointer"
+                >
                   <img src={quizLink} alt="" className="md:w-[3rem] " />
                 </Link>
               </div>
@@ -237,12 +240,14 @@ const AddTopic = ({ courseTitle }) => {
                       {/* Button container */}
                       <button // Cancel button
                         onClick={handleVideoCancelClick}
-                        className="px-4 py-2 text-black rounded-md">
+                        className="px-4 py-2 text-black rounded-md"
+                      >
                         Cancel
                       </button>
                       <button // Done button
                         onClick={handleVideoDoneClick}
-                        className="bg-[#126912] text-white py-2 px-4 rounded-full ml-2">
+                        className="bg-[#126912] text-white py-2 px-4 rounded-full ml-2"
+                      >
                         Done
                       </button>
                     </div>

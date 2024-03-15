@@ -76,7 +76,8 @@ const CourseDescription = ({ courseId }) => {
           <button
             type="submit"
             className="flex items-center gap-2 pr-5 cursor-pointer"
-            onClick={() => addToCartNotify()}>
+            onClick={() => addToCartNotify()}
+          >
             <div className="text-[#4c604c] text-[1.5rem]">
               <FaSave />
             </div>

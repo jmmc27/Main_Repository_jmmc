@@ -72,7 +72,8 @@ const Profile = () => {
           {/* Use react icon instead of word back */}
           <div
             className="flex items-center mt-3 cursor-pointer pl-1 lg:px-5 w-[10%]"
-            onClick={goBack}>
+            onClick={goBack}
+          >
             <span className="text-[2.5rem]">
               <IoArrowBackCircle />
             </span>
@@ -97,7 +98,8 @@ const Profile = () => {
                     ? "cursor-pointer p-1 rounded-md lg:mt-2 lg:p-2 lg:text-[1.2rem]  text-[#000000] opacity-[53%] bg-[#126912] lg:w-[100%] lg:text-center bg-opacity-[25%] "
                     : "cursor-pointer p-1 rounded-md lg:mt-2 lg:p-2 lg:text-[1.2rem]  text-[#4D4141] hover:text-[#000000] opacity-[53%] lg:w-[100%] lg:text-center "
                 }
-                onClick={showPInfo}>
+                onClick={showPInfo}
+              >
                 Personal Information
               </p>
               <p
@@ -106,7 +108,8 @@ const Profile = () => {
                     ? "cursor-pointer p-1 rounded-md lg:text-[1.2rem]  lg:p-2 text-[#000] opacity-[53%] bg-[#126912] lg:w-[100%] lg:text-center bg-opacity-[25%]"
                     : "cursor-pointer p-1 rounded-md lg:text-[1.2rem]  lg:p-2 text-[#4D4141] hover:text-[#000] opacity-[53%]  lg:w-[100%] lg:text-center "
                 }
-                onClick={showADetails}>
+                onClick={showADetails}
+              >
                 Account Details
               </p>
             </div>

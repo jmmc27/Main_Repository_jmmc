@@ -152,10 +152,12 @@ const TopicPage = () => {
             return (
               <div
                 key={idx}
-                className="flex justify-start cursor-pointer w-[90%]">
+                className="flex justify-start cursor-pointer w-[90%]"
+              >
                 <Link
                   to={`/teambcourseoverview/${course_id}`}
-                  className=" pt-3 pb-8 ">
+                  className=" pt-3 pb-8 "
+                >
                   <span className="text-[2.1rem] text-white">
                     <IoArrowBackCircle />
                   </span>
@@ -169,7 +171,8 @@ const TopicPage = () => {
             <div>
               <p
                 className="cursor-pointer font-light pb-3 text-white TeamB_text-shadow text-[1.3rem] "
-                onClick={showDescriptionHandle}>
+                onClick={showDescriptionHandle}
+              >
                 Description
               </p>
             </div>
@@ -191,7 +194,8 @@ const TopicPage = () => {
                               onClick={() => {
                                 showEditHandle();
                                 setEditTopicId(topic_id);
-                              }}>
+                              }}
+                            >
                               {topic_title}
                             </p>
 
@@ -200,7 +204,8 @@ const TopicPage = () => {
                               onClick={() => {
                                 setDeleteModalVisible((prev) => !prev);
                                 setDeleteTopicTitle(topic_id);
-                              }}>
+                              }}
+                            >
                               <MdDelete />
                             </span>
                           </div>
@@ -212,9 +217,28 @@ const TopicPage = () => {
               })}
             </div>
 
+            <Link to="/AddQuiz">
+              <div className="w-[100%] flex justify-center items-center">
+                <button
+                  className="btn courseButton"
+                  data-bs-toggle="modal"
+                  data-bs-target="#mainId"
+                  type="button"
+                  style={{
+                    backgroundColor: "#0E3B03",
+                    color: "white",
+                    boxShadow:
+                      "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
+                  }}
+                >
+                  Create Quiz
+                </button>
+              </div>
+            </Link>
             <div
               className="flex items-center justify-center h-[30%] "
-              onClick={showAddHandle}>
+              onClick={showAddHandle}
+            >
               <div className="text-white text-[4rem] md:text-[2.5rem] lg:text-[2rem] pr-2 cursor-pointer">
                 <IoIosAddCircle />
               </div>
@@ -230,7 +254,8 @@ const TopicPage = () => {
           <div className="fixed md:hidden z-20 flex justify-start  pt-3  cursor-pointer w-[90%]">
             <span
               className="text-[2.1rem] text-white"
-              onClick={() => setSideBarShow((prev) => !prev)}>
+              onClick={() => setSideBarShow((prev) => !prev)}
+            >
               <IoArrowBackCircle />
             </span>
           </div>
@@ -238,7 +263,8 @@ const TopicPage = () => {
           <div className="fixed z-20 md:hidden flex justify-start  pt-3  cursor-pointer w-[90%]">
             <span
               className="text-[2.1rem] text-black"
-              onClick={() => setSideBarShow((prev) => !prev)}>
+              onClick={() => setSideBarShow((prev) => !prev)}
+            >
               <IoArrowForwardCircle />
             </span>
           </div>
@@ -249,7 +275,8 @@ const TopicPage = () => {
               <div>
                 <p
                   className="relative z-10 cursor-pointer font-light pb-3 text-white TeamB_text-shadow text-[1.3rem]"
-                  onClick={showDescriptionHandle}>
+                  onClick={showDescriptionHandle}
+                >
                   Description
                 </p>
               </div>
@@ -271,7 +298,8 @@ const TopicPage = () => {
                                 onClick={() => {
                                   showEditHandle();
                                   setEditTopicId(topic_id);
-                                }}>
+                                }}
+                              >
                                 {topic_title}
                               </p>
 
@@ -280,7 +308,8 @@ const TopicPage = () => {
                                 onClick={() => {
                                   setDeleteModalVisible((prev) => !prev);
                                   setDeleteTopicTitle(topic_id);
-                                }}>
+                                }}
+                              >
                                 <MdDelete />
                               </span>
                             </div>
@@ -292,9 +321,27 @@ const TopicPage = () => {
                 })}
               </div>
 
+              <div className="w-[100%] flex justify-center items-center">
+                <button
+                  className="btn courseButton"
+                  data-bs-toggle="modal"
+                  data-bs-target="#mainId"
+                  type="button"
+                  style={{
+                    backgroundColor: "#0E3B03",
+                    color: "white",
+                    boxShadow:
+                      "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
+                  }}
+                >
+                  Create Quiz
+                </button>
+              </div>
+
               <div
                 className="flex items-center h-[30%] justify-center"
-                onClick={showAddHandle}>
+                onClick={showAddHandle}
+              >
                 <div className="text-white text-[2.5rem] pr-2 cursor-pointer">
                   <IoIosAddCircle />
                 </div>

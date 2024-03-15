@@ -49,7 +49,9 @@ const CourseListCard = () => {
 
   //COURSES
   const loadCourses = async () => {
-    const result = await axios.get("http://localhost:8080/api/v1/auth/getCourses");
+    const result = await axios.get(
+      "http://localhost:8080/api/v1/auth/getCourses"
+    );
     setCourses(result.data);
   };
 
@@ -152,7 +154,8 @@ const CourseListCard = () => {
                 {hideSearch && (
                   <div
                     ref={searchContainerRef}
-                    className="h-[20vh] w-[100%] absolute bg-[#fff] top-10 z-10 shadow-lg rounded-md pt-2">
+                    className="h-[20vh] w-[100%] absolute bg-[#fff] top-10 z-10 shadow-lg rounded-md pt-2"
+                  >
                     <div className="flex justify-end w-full cursor-pointer">
                       <IoMdClose
                         onClick={() => setHideSearch(false)}
@@ -170,7 +173,8 @@ const CourseListCard = () => {
                           return (
                             <div key={idx} className="">
                               <Link
-                                to={`/teambcourseoverview/${course.course_id}`}>
+                                to={`/teambcourseoverview/${course.course_id}`}
+                              >
                                 <p className="text-[.9rem] pl-2 font-light TeamB_text-shadow cursor-pointer">
                                   {course_title}
                                 </p>
@@ -194,7 +198,8 @@ const CourseListCard = () => {
                 return (
                   <div
                     key={idx}
-                    className="w-[100%] lg:max-w-[60vw] rounded-md shadow-md ">
+                    className="w-[100%] lg:max-w-[60vw] rounded-md shadow-md "
+                  >
                     <div className="relative flex px-0 py-0 rounded-md ">
                       <div className="bg-[#BCE8B1] flex py-3 item-center justify-center text-center text-[.8rem] lg:text-[1rem] w-[30%] lg:w-[20%] lg:p-5 rounded-l-sm lg:rounded-l-md">
                         <p className="flex items-center h-full lg:font-medium TeamB_text-shadow ">
@@ -205,7 +210,8 @@ const CourseListCard = () => {
                       <Link
                         to={`/teambcourseoverview/${course.course_id}`}
                         className="text-white TeamB_text-shadow line-clamp-1 lg:font-bold text-[.8rem] w-full py-1 lg:py-0 lg:text-[1.2rem] flex justify-left px-3 items-center
-                            rounded-r-sm lg:rounded-r-md 	bg-[#126912]  ">
+                            rounded-r-sm lg:rounded-r-md 	bg-[#126912]  "
+                      >
                         {/* change to course_title for api connection */}
                         <p className="w-[90%] line-clamp-1">
                           {course.course_title}
@@ -217,7 +223,8 @@ const CourseListCard = () => {
                           setShowEditTitle((prev) => !prev);
                           setEditCourseId(course.course_id);
                         }}
-                        className="absolute cursor-pointer right-2 flex items-center h-full text-white text-[1.5rem]">
+                        className="absolute cursor-pointer right-2 flex items-center h-full text-white text-[1.5rem]"
+                      >
                         <FaEdit />
                       </span>
                       {showEditTitle && editCourseId === course.course_id && (
@@ -249,25 +256,25 @@ const CourseListCard = () => {
               </Stack>
             )}
             {/* onClick={() => setShowCreateCourse((prev) => !prev)} */}
-            
+
             <div className=" h-[8vh] flex w-[100%] m-auto lg:w-[50%]   items-center justify-center">
-                <div
-                  className="bg-[#BCE8B1] w-[10%] cursor-pointer  flex items-center justify-center  rounded-l-sm lg:rounded-l-md h-10"
-                  onClick={() => setShowCreateCourse((prev) => !prev)}>
-                  <span>
-                    <IoAdd className="lg:text-[2rem] text-white" />
-                  </span>
-                </div>
-                <div
-                  className="bg-[#126912] text-white lg:font-bold cursor-pointer h-10
-                  w-[40%] md:w-[40%] lg:w-[30%]  flex items-center justify-center rounded-r-sm  lg:rounded-r-md"
-                  onClick={() => setShowCreateCourse((prev) => !prev)}>
-                  <span className=" TeamB_text-shadow">
-                    Add New Course
-                  </span>
-                </div>
+              <div
+                className="bg-[#BCE8B1] w-[10%] cursor-pointer  flex items-center justify-center  rounded-l-sm lg:rounded-l-md h-10"
+                onClick={() => setShowCreateCourse((prev) => !prev)}
+              >
+                <span>
+                  <IoAdd className="lg:text-[2rem] text-white" />
+                </span>
               </div>
-            
+              <div
+                className="bg-[#126912] text-white lg:font-bold cursor-pointer h-10
+                  w-[40%] md:w-[40%] lg:w-[30%]  flex items-center justify-center rounded-r-sm  lg:rounded-r-md"
+                onClick={() => setShowCreateCourse((prev) => !prev)}
+              >
+                <span className=" TeamB_text-shadow">Add New Course</span>
+              </div>
+            </div>
+
             <div className="absolute ">
               <div className="lg:w-[1080px] ">
                 {showCreateCourse && <CopyofCreateNewCourse />}

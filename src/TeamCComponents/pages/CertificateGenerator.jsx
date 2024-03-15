@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import img from "../../TeamDComponents/TeamD_Assets/certificate-background.png";
 import signatureImg from "../../TeamDComponents/TeamD_Assets/Signiture.png";
 import Team_D_HeaderV2 from "../../TeamDComponents/Team_D_HeaderV2";
-import jsPDF  from 'jspdf';
+import jsPDF from "jspdf";
 import { Button } from "react-bootstrap";
 
 const CertificateGenerator = () => {
@@ -13,7 +13,7 @@ const CertificateGenerator = () => {
     const loadQuiz = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/v1/auth/finalscore/3"    
+          "http://localhost:8080/api/v1/auth/finalscore/3"
         );
         if (!response.ok) {
           throw new Error("Failed to fetch quiz data");
@@ -35,11 +35,15 @@ const CertificateGenerator = () => {
       return;
     }
 
-    const name = quiz.enrollment.user.firstName + " " +quiz.enrollment.user.lastName;
+    const name =
+      quiz.enrollment.user.firstName + " " + quiz.enrollment.user.lastName;
     const userId = quiz.enrollment.user.user_id;
     // console.log(userId);
     // console.log(quiz[0].userFullName);
-    const instructor = quiz.enrollment.course.instructor.firstName + " " + quiz.enrollment.course.instructor.lastName;
+    const instructor =
+      quiz.enrollment.course.instructor.firstName +
+      " " +
+      quiz.enrollment.course.instructor.lastName;
     const course = quiz.enrollment.course.course_title;
     const courseCode = quiz.enrollment.course.course_id;
     //console.log(courseCode);
@@ -61,7 +65,7 @@ const CertificateGenerator = () => {
       const doc = new jsPDF({
         orientation: "landscape",
         unit: "mm",
-        format: [297, 210]
+        format: [297, 210],
       });
 
       // Add certificate background image
@@ -107,7 +111,7 @@ const CertificateGenerator = () => {
       const datePositionY = 128;
 
       doc.text(`${formattedNewDate}`, datePositionX, datePositionY, {
-        align: "left"
+        align: "left",
       });
 
       // Formatted date for small display
@@ -157,7 +161,7 @@ const CertificateGenerator = () => {
       const formattedTime = currentDateTime.toLocaleTimeString([], {
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit"
+        second: "2-digit",
       });
 
       console.log(formattedTime); // Add this line to log the formatted time
@@ -176,7 +180,7 @@ const CertificateGenerator = () => {
       doc.setFontSize(11);
       doc.setTextColor(162, 123, 66);
       doc.text(`B55-${SerialformattedDate}${serialNumber}`, 85, 158, {
-        align: "left"
+        align: "left",
       });
 
       const startDate = new Date(creditHours);
@@ -218,7 +222,7 @@ const CertificateGenerator = () => {
         [doc.output("blob")],
         `${nameWithoutSpaces}_${formattedCourse}.pdf`,
         {
-          type: "application/pdf"
+          type: "application/pdf",
         }
       );
 
@@ -237,7 +241,7 @@ const CertificateGenerator = () => {
       // Send the PDF file to the backend
       fetch("http://localhost:8080/api/v1/auth/certificate/post", {
         method: "POST",
-        body: formDataToSend
+        body: formDataToSend,
       })
         .then((response) => {
           console.log("Certificate saved:", response);

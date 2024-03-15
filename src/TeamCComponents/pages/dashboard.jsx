@@ -28,20 +28,23 @@ function TeamC_Dashboard() {
     fetchChapters();
   }, []);
   console.log(chapters);
-  const userId = localStorage.getItem('userId');
+  const userId = localStorage.getItem("userId");
   const handleEnroll = async (course_id) => {
     try {
       const enrollmentData = {
         enrollmentStatus: "Enrolled",
         user: {
-          user_id: userId
+          user_id: userId,
         }, // Example user ID
         course: {
-          course_id:course_id
-        } // Example course ID
+          course_id: course_id,
+        }, // Example course ID
       };
 
-      const response = await axios.post("http://localhost:8080/api/v1/auth/enroll", enrollmentData);
+      const response = await axios.post(
+        "http://localhost:8080/api/v1/auth/enroll",
+        enrollmentData
+      );
 
       if (response.status === 201) {
         console.log("Enrollment successful");
@@ -78,9 +81,11 @@ function TeamC_Dashboard() {
 
       {/* Course Previews */}
       <div className="course-title">
-        <h1 className="course-prev fw-bold text-center mt-3 mb-3" id="c_preview_courseprev">
+        <h1
+          className="course-prev fw-bold text-center mt-3 mb-3"
+          id="c_preview_courseprev"
+        >
           Explore Courses
-
         </h1>
       </div>
 

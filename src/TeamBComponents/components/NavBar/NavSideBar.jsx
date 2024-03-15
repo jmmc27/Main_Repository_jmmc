@@ -39,7 +39,8 @@ const NavSideBar = () => {
                 profileShow
                   ? "font-semibold text-[#116211]  p-1 TeamB_text-shadow   transition-all"
                   : "font-bold TeamB_text-shadow   p-1   hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-              }>
+              }
+            >
               Profile
             </ul>
           </Link>
@@ -50,7 +51,8 @@ const NavSideBar = () => {
                 dashBoardShow
                   ? "font-semibold text-[#116211]  p-1 TeamB_text-shadow   transition-all"
                   : "font-bold TeamB_text-shadow   p-1   hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-              }>
+              }
+            >
               Dashboard
             </ul>
           </Link>
@@ -60,7 +62,8 @@ const NavSideBar = () => {
                 courseListShow
                   ? "font-semibold text-[#116211]   p-1 TeamB_text-shadow   transition-all"
                   : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] hover:bg-opacity-[50%] hover:font-semibold transition-all"
-              }>
+              }
+            >
               Course List
             </ul>
           </Link>
@@ -70,7 +73,8 @@ const NavSideBar = () => {
                 forumShow
                   ? "font-semibold text-[#116211]  p-1 TeamB_text-shadow   transition-all"
                   : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-              }>
+              }
+            >
               Forums
             </ul>
           </Link>
@@ -80,7 +84,8 @@ const NavSideBar = () => {
                 logout
                   ? "font-semibold text-[#116211]  p-1 TeamB_text-shadow   transition-all"
                   : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-              }>
+              }
+            >
               Log Out
             </ul>
           </Link>

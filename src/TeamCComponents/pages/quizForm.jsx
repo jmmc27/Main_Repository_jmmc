@@ -5,7 +5,6 @@ const TeamC_QuizForm = () => {
   return (
     <>
       <TeamC_QuizForm_Component />
-   
     </>
   );
 };

@@ -17,7 +17,7 @@ const Team_D_Verification = () => {
   const [verifyClicked, setVerifyClicked] = useState(false);
   const defaultCodePrefix = "B55-";
 
-//updated code as of 2/28/24 -jake
+  //updated code as of 2/28/24 -jake
 
   const handleVerify = async () => {
     setLoading(true);
@@ -78,7 +78,7 @@ const Team_D_Verification = () => {
 
   return (
     <div>
-      <Navigation/>
+      <Navigation />
       <section className="verification_container">
         <div className="verification_title">
           <span></span>
@@ -213,7 +213,11 @@ const Team_D_Verification = () => {
                       <Form.Control
                         size="sm"
                         type="text"
-                        placeholder={verificationResult[0].firstName + " " + verificationResult[0].lastName}
+                        placeholder={
+                          verificationResult[0].firstName +
+                          " " +
+                          verificationResult[0].lastName
+                        }
                         readOnly
                       />
                     </div>

@@ -1,41 +1,41 @@
 /* Styles for the quiz item list container */
 .quizItemList ul {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 /* Styles for each quiz item in the list */
 .quizItemList ul li {
-    display: flex;
-    align-items: center;
-    height: 2.5rem;
-    padding-left: 1rem;
-    border: 0.01rem solid #0e3b0e;
-    border-radius: 0.3rem;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding-left: 1rem;
+  border: 0.01rem solid #0e3b0e;
+  border-radius: 0.3rem;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 /* Styles for final answers container list items */
 #finalAnswersContainer ul li {
-    height: fit-content;
+  height: fit-content;
 }
 
 /* Styles for the button within the quiz item list */
 .quizItemList button {
-    margin: auto;
-    width: 2rem;
-    height: 3rem;
-    background: #0e3b03;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 1rem;
-    cursor: pointer;
+  margin: auto;
+  width: 2rem;
+  height: 3rem;
+  background: #0e3b03;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 /* Styles for the selected quiz item */
 .quizItemList li.selected {
-    background-color: #0e3b03;
-    color: #fff;
+  background-color: #0e3b03;
+  color: #fff;
 }

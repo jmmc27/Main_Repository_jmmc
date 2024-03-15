@@ -8,7 +8,6 @@ const UploadTopic = () => {
         <p>File Upload</p>
       </div>
       {/* Video Popup */}
-    
     </div>
   );
 };

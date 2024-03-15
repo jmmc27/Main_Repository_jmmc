@@ -49,13 +49,13 @@ const ForumF = () => {
   //hide and show submit form
   const [showForm, setShowForm] = useState(false);
 
-  // Functionality for hiding form when submit 2.19.24 Change the modal into 
+  // Functionality for hiding form when submit 2.19.24 Change the modal into
   const hideFormHandle = () => {
     setShowForm((prev) => !prev);
     setShowDiscussionForm(false);
     setTimeout(() => {
       alert("Discussion posted!"); // Show alert when form is submitted
-    }, 300); // Display alert for prefer time   
+    }, 300); // Display alert for prefer time
   };
 
   return (

@@ -66,7 +66,7 @@ const SidebarC = () => {
               <ul className="nav flex-column" key={idx}>
                 <li className="teamcnavitem nav-item">
                   {topic.map((tpc, idx) => {
-                    const { topic_title, topic_id } = tpc;  
+                    const { topic_title, topic_id } = tpc;
                     return (
                       <div key={idx}>
                         <li className="nav-item">
@@ -85,29 +85,30 @@ const SidebarC = () => {
                   })}
                 </li>
                 <div
-  id="c_maincontent_buttoncontainer"
-  className="mt-auto"
-  style={{
-    display: 'flex',        // Enable flexbox
-    justifyContent: 'center', // Horizontally center the content
-    alignItems: 'center',     // Vertically center (if needed)
-    height: '100%'            // Ensure the container takes up the full height if you want vertical centering as well
-  }}
->
-  <button
-    className="btn courseButton"
-    data-bs-toggle="modal"
-    data-bs-target="#mainId"
-    type="button"
-    style={{
-      backgroundColor: '#0E3B03',
-      color: 'white',
-      boxShadow: '0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)',
-    }}
-  >
-    Go to Quiz
-  </button>
-</div>
+                  id="c_maincontent_buttoncontainer"
+                  className="mt-auto"
+                  style={{
+                    display: "flex", // Enable flexbox
+                    justifyContent: "center", // Horizontally center the content
+                    alignItems: "center", // Vertically center (if needed)
+                    height: "100%", // Ensure the container takes up the full height if you want vertical centering as well
+                  }}
+                >
+                  <button
+                    className="btn courseButton"
+                    data-bs-toggle="modal"
+                    data-bs-target="#mainId"
+                    type="button"
+                    style={{
+                      backgroundColor: "#0E3B03",
+                      color: "white",
+                      boxShadow:
+                        "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
+                    }}
+                  >
+                    Go to Quiz
+                  </button>
+                </div>
 
                 <Link
                   onClick={goBack}
@@ -118,9 +119,6 @@ const SidebarC = () => {
                     width: "fit-content",
                   }}
                 >
-                  
-
-                  
                   <div
                     className="teamcreturnbtn d-flex align-items-center"
                     style={{ marginTop: "1rem" }}
@@ -171,8 +169,6 @@ const SidebarC = () => {
           </ul>
         );
       })} */}
-
-     
     </div>
   );
 };

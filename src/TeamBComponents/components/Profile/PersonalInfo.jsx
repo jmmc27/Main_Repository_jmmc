@@ -62,7 +62,8 @@ const PersonalInfo = ({ intructorName, userEmail }) => {
                 <div className="relative">
                   <label
                     htmlFor="firstName"
-                    className=" text-[#4D4141] text-opacity-[53%] absolute z-10 top-0 left-2 text-[.8rem] xl:text-[16px]  ">
+                    className=" text-[#4D4141] text-opacity-[53%] absolute z-10 top-0 left-2 text-[.8rem] xl:text-[16px]  "
+                  >
                     First Name
                   </label>
 
@@ -80,7 +81,8 @@ const PersonalInfo = ({ intructorName, userEmail }) => {
                 <div className="relative ">
                   <label
                     htmlFor="lastName"
-                    className=" text-[#4D4141] text-opacity-[53%] absolute z-10 top-0 left-2 text-[.8rem] xl:text-[16px] ">
+                    className=" text-[#4D4141] text-opacity-[53%] absolute z-10 top-0 left-2 text-[.8rem] xl:text-[16px] "
+                  >
                     Last Name
                   </label>
 
@@ -98,7 +100,8 @@ const PersonalInfo = ({ intructorName, userEmail }) => {
                     <div className="relative">
                       <label
                         htmlFor="Email"
-                        className=" text-[#4D4141] text-opacity-[53%] absolute   z-10 top-0 left-2 text-[.8rem] xl:text-[16px]">
+                        className=" text-[#4D4141] text-opacity-[53%] absolute   z-10 top-0 left-2 text-[.8rem] xl:text-[16px]"
+                      >
                         Email Address
                       </label>
 
@@ -117,7 +120,8 @@ const PersonalInfo = ({ intructorName, userEmail }) => {
                     <div className="relative">
                       <label
                         htmlFor="phonenumber"
-                        className=" text-[#4D4141] text-opacity-[53%] absolute   z-10 top-0 left-2 text-[.8rem] xl:text-[16px]">
+                        className=" text-[#4D4141] text-opacity-[53%] absolute   z-10 top-0 left-2 text-[.8rem] xl:text-[16px]"
+                      >
                         Contact Number
                       </label>
                       {/* CONTACT NUMBER INPUT */}
@@ -139,7 +143,8 @@ const PersonalInfo = ({ intructorName, userEmail }) => {
               <div className="w-[100%] flex justify-center lg:justify-end absolute bottom-2 lg:bottom-0">
                 <button
                   onClick={showUpdate}
-                  className=" TeamB_btn-style  lg:w-[120px] lg:flex lg:justify-center w-[90%] xl:w-[170px] rounded-full">
+                  className=" TeamB_btn-style  lg:w-[120px] lg:flex lg:justify-center w-[90%] xl:w-[170px] rounded-full"
+                >
                   Edit
                 </button>
               </div>

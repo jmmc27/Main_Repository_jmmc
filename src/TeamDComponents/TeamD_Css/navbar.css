@@ -1,313 +1,311 @@
 /* Styles for buttons container */
-.btns{
-    display: flex;
-    flex-direction: row;
-    gap: 10px; /* Gap between buttons */
+.btns {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* Gap between buttons */
 }
 
 /* Styles for the TeamD navbar */
 .navbar_TeamD {
-    display: flex;
-    align-items: center;
-    padding: 0 18.33px 0 18.33px;
-    background-color: #D9FFCF; /* Background color */
-    height: 69px !important; /* Height */
-    justify-content: space-between; /* Space between items */
+  display: flex;
+  align-items: center;
+  padding: 0 18.33px 0 18.33px;
+  background-color: #d9ffcf; /* Background color */
+  height: 69px !important; /* Height */
+  justify-content: space-between; /* Space between items */
 }
 
 /* Styles for the navbar items */
 #navbar {
-    margin-bottom: 0; /* Remove margin at the bottom */
+  margin-bottom: 0; /* Remove margin at the bottom */
 }
 
 /* Styles for the navbar container */
 #navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center alignment */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center alignment */
 }
 
 /* Styles for the list items in the navbar */
 #navbar li {
-    list-style: none; /* Remove default list style */
-    padding: 0 20px; /* Padding */
-    position: relative; /* Position relative */
+  list-style: none; /* Remove default list style */
+  padding: 0 20px; /* Padding */
+  position: relative; /* Position relative */
 }
 
 /* Styles for the navbar links */
 #navbar li a {
-    text-decoration: none; /* Remove underline */
-    font-size: 18px; /* Font size */
-    font-weight: 600; /* Font weight */
-    color: black; /* Text color */
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Text shadow */
+  text-decoration: none; /* Remove underline */
+  font-size: 18px; /* Font size */
+  font-weight: 600; /* Font weight */
+  color: black; /* Text color */
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); /* Text shadow */
 }
 
 /* Hover and active styles for navbar links */
 #navbar li a:hover,
 #navbar li a:active {
-    color: #126912; /* Text color on hover and active */
+  color: #126912; /* Text color on hover and active */
 }
 
 /* Active link style */
 #navbar li a.active {
-    color: #126912; /* Active link text color */
+  color: #126912; /* Active link text color */
 }
 
 /* Styles for mobile navbar */
 #mobile {
-    display: None; /* Hide by default */
-    align-items: center; /* Align items */
+  display: None; /* Hide by default */
+  align-items: center; /* Align items */
 }
 
 /* Styles for profile images */
 .profile_img {
-    border: 1.5px solid #126912; /* Border */
-    border-radius: 50px; /* Border radius */
-    width: 23px; /* Width */
-    height: 23px; /* Height */
+  border: 1.5px solid #126912; /* Border */
+  border-radius: 50px; /* Border radius */
+  width: 23px; /* Width */
+  height: 23px; /* Height */
 }
 
 /* Styles for mobile profile */
 .mobile_profile {
-    border: 2px solid #126912; /* Border */
-    border-radius: 50px; /* Border radius */
-    width: 40px; /* Width */
-    height: 40px; /* Height */
+  border: 2px solid #126912; /* Border */
+  border-radius: 50px; /* Border radius */
+  width: 40px; /* Width */
+  height: 40px; /* Height */
 }
 
 /* Styles for profile button */
 .button_profile {
-    display: flex !important; /* Display as flex */
-    align-items: center; /* Align items */
-    justify-content: center; /* Justify content */
-    gap: 10px; /* Gap between items */
-    background-color: white !important; /* Background color */
-    color: #126912 !important; /* Text color */
-    font-weight: 600 !important; /* Font weight */
+  display: flex !important; /* Display as flex */
+  align-items: center; /* Align items */
+  justify-content: center; /* Justify content */
+  gap: 10px; /* Gap between items */
+  background-color: white !important; /* Background color */
+  color: #126912 !important; /* Text color */
+  font-weight: 600 !important; /* Font weight */
 }
 
 /* Styles for dropdown menu */
 .dropdown-menu.show {
-    background-color: #D9FFCF; /* Background color */
+  background-color: #d9ffcf; /* Background color */
 }
 
 /* Additional styles for dropdown menu */
 .dropdown-menu.show {
-    font-size: 18px; /* Font size */
-    font-style: normal; /* Font style */
-    font-weight: 400 !important; /* Font weight */
-    line-height: normal; /* Line height */
-    /* left: 0 !important; */ /* hide left:0 as teamA modification is not yet integrated in teamD 2/17/24*/
-    transform: translateX(-50%); /* Translate position */
+  font-size: 18px; /* Font size */
+  font-style: normal; /* Font style */
+  font-weight: 400 !important; /* Font weight */
+  line-height: normal; /* Line height */
+  /* left: 0 !important; */ /* hide left:0 as teamA modification is not yet integrated in teamD 2/17/24*/
+  transform: translateX(-50%); /* Translate position */
 }
 
 /* Styles for dropdown items */
 .dropdown-menu.show .dropdown-item {
-    text-align: start; /* Text alignment */
-    display: flex !important; /* Display as flex */
-    align-items: center; /* Align items */
-    justify-content: flex-start; /* Justify content */
-    gap: 5px; /* Gap between items */
-    margin-right: 50px; /* Margin */
+  text-align: start; /* Text alignment */
+  display: flex !important; /* Display as flex */
+  align-items: center; /* Align items */
+  justify-content: flex-start; /* Justify content */
+  gap: 5px; /* Gap between items */
+  margin-right: 50px; /* Margin */
 }
-
-
 
 /* Styles for last dropdown item in profile */
 .profile_side .dropdown-menu.show .dropdown-item:last-child {
-    color:#BF3131 !important; /* Text color */
-    text-decoration: none;
+  color: #bf3131 !important; /* Text color */
+  text-decoration: none;
 }
 
 /* Hover and active styles for last dropdown item */
-.profile_side  .dropdown-menu.show .dropdown-item:last-child:hover,
-.profile_side  .dropdown-menu.show .dropdown-item:last-child:active {
-    color:#fd0f0f !important; /* Text color on hover and active */
-    text-decoration: none;
+.profile_side .dropdown-menu.show .dropdown-item:last-child:hover,
+.profile_side .dropdown-menu.show .dropdown-item:last-child:active {
+  color: #fd0f0f !important; /* Text color on hover and active */
+  text-decoration: none;
 }
 
 /* Hover styles for dropdown items */
 .dropdown-menu.show .dropdown-item:hover {
-    background-color: transparent; /* Transparent background on hover */
-    color: #126912 !important; /* Text color on hover */
+  background-color: transparent; /* Transparent background on hover */
+  color: #126912 !important; /* Text color on hover */
 }
 
 /* Active styles for dropdown items */
 .dropdown-menu.show .dropdown-item.active {
-    background-color: transparent; /* Transparent background for active item */
-    color: #126912 !important; /* Text color for active item */
+  background-color: transparent; /* Transparent background for active item */
+  color: #126912 !important; /* Text color for active item */
 }
 
 /* Styles for profile info container */
 .profile_info {
-    display: none; /* Hide by default */
+  display: none; /* Hide by default */
 }
 
 /* Styles for profile link */
 .profile_link {
-    display: none; /* Hide by default */
+  display: none; /* Hide by default */
 }
 
 .logoutmodal-overlay {
-    z-index: 1000;
+  z-index: 1000;
 }
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1025px) {
-    /* Styles for navbar on smaller screens */
-    .navbar_TeamD {
-        justify-content: space-between; /* Space between items */
-    }
-    
-    /* Styles for navbar container on smaller screens */
-    #navbar {
-        flex-direction: column; /* Column layout */
-        align-items: flex-start; /* Align items */
-        justify-content: flex-start; /* Justify content */
-        position: fixed; /* Fixed position */
-        top: 70px; /* Top position */
-        right: -350px; /* Right position */
-        width: 330px; /* Width */
-        height: 100vh; /* Height */
-        padding: 40px 0  0 10px; /* Padding */
-        background: rgba( 217, 255, 207, 0.65 ); /* Background color */
-        box-shadow: 0 8px 32px -8px rgba( 31, 38, 135, 0.37 ); /* Box shadow */
-        backdrop-filter: blur( 9px ); /* Backdrop filter */
-        -webkit-backdrop-filter: blur( 9px ); /* Webkit backdrop filter */
-        border-bottom-left-radius: 25px; /* Border radius */
-        border-bottom-right-radius: 25px; /* Border radius */
-        border: 1px solid rgba( 255, 255, 255, 0.18 ); /* Border */
-        z-index: 1000; /* Z-index */
-    }
+  /* Styles for navbar on smaller screens */
+  .navbar_TeamD {
+    justify-content: space-between; /* Space between items */
+  }
 
-    /* Show navbar on active */
-    #navbar.active {
-        right: 0; /* Right position */
-    }
+  /* Styles for navbar container on smaller screens */
+  #navbar {
+    flex-direction: column; /* Column layout */
+    align-items: flex-start; /* Align items */
+    justify-content: flex-start; /* Justify content */
+    position: fixed; /* Fixed position */
+    top: 70px; /* Top position */
+    right: -350px; /* Right position */
+    width: 330px; /* Width */
+    height: 100vh; /* Height */
+    padding: 40px 0 0 10px; /* Padding */
+    background: rgba(217, 255, 207, 0.65); /* Background color */
+    box-shadow: 0 8px 32px -8px rgba(31, 38, 135, 0.37); /* Box shadow */
+    backdrop-filter: blur(9px); /* Backdrop filter */
+    -webkit-backdrop-filter: blur(9px); /* Webkit backdrop filter */
+    border-bottom-left-radius: 25px; /* Border radius */
+    border-bottom-right-radius: 25px; /* Border radius */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Border */
+    z-index: 1000; /* Z-index */
+  }
 
-    /* Margin for list items */
-    #navbar li {
-        margin-bottom: 25px; /* Margin at the bottom */
-    }
+  /* Show navbar on active */
+  #navbar.active {
+    right: 0; /* Right position */
+  }
 
-    /* Hover and active styles for navbar links */
-    #navbar li a:hover,
-    #navbar li a:active {
-        color: #126912; /* Text color on hover and active */
-    }
+  /* Margin for list items */
+  #navbar li {
+    margin-bottom: 25px; /* Margin at the bottom */
+  }
 
-    /* Active link style */
-    #navbar li a.active {
-        text-decoration: underline; /* Underline active link */
-        color: #126912; /* Active link text color */
-    }
+  /* Hover and active styles for navbar links */
+  #navbar li a:hover,
+  #navbar li a:active {
+    color: #126912; /* Text color on hover and active */
+  }
 
-    /* Show mobile navbar */
-    #mobile {
-        display: block; /* Show on smaller screens */
-        color: white; /* Text color */
-    }
+  /* Active link style */
+  #navbar li a.active {
+    text-decoration: underline; /* Underline active link */
+    color: #126912; /* Active link text color */
+  }
 
-    /* Styles for mobile icon */
-    #mobile i {
-        font-size: 24px; /* Font size */
-        cursor: pointer; /* Cursor style */
-        color: #126912; /* Icon color */
-    }
+  /* Show mobile navbar */
+  #mobile {
+    display: block; /* Show on smaller screens */
+    color: white; /* Text color */
+  }
 
-    /* Hide profile side on smaller screens */
-    .profile_side {
-        display: none; /* Hide on smaller screens */
-    }
+  /* Styles for mobile icon */
+  #mobile i {
+    font-size: 24px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    color: #126912; /* Icon color */
+  }
 
-    /* Adjust margin for dropdown toggle */
-    .mycourse_dd .dropdown-toggle.show {
-        margin-bottom: 50px; /* Margin at the bottom */
-    }
+  /* Hide profile side on smaller screens */
+  .profile_side {
+    display: none; /* Hide on smaller screens */
+  }
 
-    /* Show profile info on smaller screens */
-    .profile_info {
-        display: block; /* Show on smaller screens */
-        width: 100%; /* Width */
-        background-color: #BCE8B1; /* Background color */
-        padding: 10px !important; /* Padding */
-        border-radius: 25px; /* Border radius */
-        margin-bottom: 10px !important; /* Margin at the bottom */
-        text-shadow: transparent !important; /* Text shadow */
-    }
+  /* Adjust margin for dropdown toggle */
+  .mycourse_dd .dropdown-toggle.show {
+    margin-bottom: 50px; /* Margin at the bottom */
+  }
 
-    /* Styles for profile image */
-    .profile_info img {
-        border: 2px solid #126912; /* Border */
-        border-radius: 50px; /* Border radius */
-        width: 50px; /* Width */
-        height: 50px; /* Height */
-    }
+  /* Show profile info on smaller screens */
+  .profile_info {
+    display: block; /* Show on smaller screens */
+    width: 100%; /* Width */
+    background-color: #bce8b1; /* Background color */
+    padding: 10px !important; /* Padding */
+    border-radius: 25px; /* Border radius */
+    margin-bottom: 10px !important; /* Margin at the bottom */
+    text-shadow: transparent !important; /* Text shadow */
+  }
 
-    /* Styles for profile info container */
-   .profile_info_con {
-        display: flex; /* Display as flex */
-        justify-content: center; /* Justify content */
-        align-items: center; /* Align items */
-        gap: 20px; /* Gap between items */
-    }
+  /* Styles for profile image */
+  .profile_info img {
+    border: 2px solid #126912; /* Border */
+    border-radius: 50px; /* Border radius */
+    width: 50px; /* Width */
+    height: 50px; /* Height */
+  }
 
-    /* Styles for profile name */
-    .profile_info_name {
-        display: flex; /* Display as flex */
-        flex-direction: column; /* Column layout */
-        justify-content: center; /* Justify content */
-        align-items: flex-start; /* Align items */
-        line-height: 5px; /* Line height */
-        gap: 10px; /* Gap between items */
-    }
+  /* Styles for profile info container */
+  .profile_info_con {
+    display: flex; /* Display as flex */
+    justify-content: center; /* Justify content */
+    align-items: center; /* Align items */
+    gap: 20px; /* Gap between items */
+  }
 
-    /* Styles for profile name paragraph */
-    .profile_info_name p {
-        margin: 5px; /* Margin */
-    }
+  /* Styles for profile name */
+  .profile_info_name {
+    display: flex; /* Display as flex */
+    flex-direction: column; /* Column layout */
+    justify-content: center; /* Justify content */
+    align-items: flex-start; /* Align items */
+    line-height: 5px; /* Line height */
+    gap: 10px; /* Gap between items */
+  }
 
-    /* Styles for profile first name */
-    .profile_info_name .profile_fName {
-        font-weight: 600; /* Font weight */
-    }
+  /* Styles for profile name paragraph */
+  .profile_info_name p {
+    margin: 5px; /* Margin */
+  }
 
-    /* Styles for profile email */
-    .profile_info_name .profile_email {
-        font-size: 14px !important; /* Font size */
-    }
+  /* Styles for profile first name */
+  .profile_info_name .profile_fName {
+    font-weight: 600; /* Font weight */
+  }
 
-    /* Styles for profile divider */
-    .profile_divider {
-        height: 20px; /* Height */
-        width: 1px;   /* Width */
-        background-color: #126912; /* Background color */
-        margin: 0 10px; /* Margin */
-      }
+  /* Styles for profile email */
+  .profile_info_name .profile_email {
+    font-size: 14px !important; /* Font size */
+  }
 
-      /* Styles for navbar divider */
-      #navbar .divider {
-        height: 2px; /* Height */
-        background-color: #0e3b03; /* Background color */
-        margin: 0 auto; /* Margin */
-        margin-bottom: 20px; /* Margin at the bottom */
-        width: 80%; /* Width */
-      }
+  /* Styles for profile divider */
+  .profile_divider {
+    height: 20px; /* Height */
+    width: 1px; /* Width */
+    background-color: #126912; /* Background color */
+    margin: 0 10px; /* Margin */
+  }
 
-      /* Show profile link */
-      .profile_link {
-        display: block; /* Show */
-    }
+  /* Styles for navbar divider */
+  #navbar .divider {
+    height: 2px; /* Height */
+    background-color: #0e3b03; /* Background color */
+    margin: 0 auto; /* Margin */
+    margin-bottom: 20px; /* Margin at the bottom */
+    width: 80%; /* Width */
+  }
 
-    /* Styles for logout button */
-    .profile_link .teamD_LogOut_Btn {
-        color: #BF3131; /* Text color */
-    }
+  /* Show profile link */
+  .profile_link {
+    display: block; /* Show */
+  }
 
-    /* Hover and active styles for logout button */
-    .profile_link .teamD_LogOut_Btn:hover,
-    .profile_link .teamD_LogOut_Btn:active {
-        color: #fd0f0f; /* Text color on hover and active */
-    }
+  /* Styles for logout button */
+  .profile_link .teamD_LogOut_Btn {
+    color: #bf3131; /* Text color */
+  }
+
+  /* Hover and active styles for logout button */
+  .profile_link .teamD_LogOut_Btn:hover,
+  .profile_link .teamD_LogOut_Btn:active {
+    color: #fd0f0f; /* Text color on hover and active */
+  }
 }

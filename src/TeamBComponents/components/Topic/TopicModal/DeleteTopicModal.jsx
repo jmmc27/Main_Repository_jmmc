@@ -43,7 +43,8 @@ const DeleteTopicModal = ({
               <div className="flex gap-x-5 cursor-pointer items-center">
                 <span
                   className="  lg:text-[1rem]"
-                  onClick={() => deleteModalVisible((prev) => !prev)}>
+                  onClick={() => deleteModalVisible((prev) => !prev)}
+                >
                   {" "}
                   {/* Cancel button */}
                   Cancel
@@ -51,7 +52,8 @@ const DeleteTopicModal = ({
 
                 <button
                   className="drop-shadow-md TeamB_text-shadow   lg:w-[90px] lg:h-[40px] lg:rounded-[80px] lg:text-[1rem]  bg-[#126912] text-[#FFFFFF]  font-bold"
-                  type="submit">
+                  type="submit"
+                >
                   {" "}
                   {/*button type */}
                   <p>Delete</p> {/* Delete button */}

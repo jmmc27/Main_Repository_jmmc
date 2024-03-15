@@ -65,7 +65,8 @@ const DashboardCard = () => {
       {/* End of header section */}
       <div
         className=" flex flex-col lg:flex-row lg:w-[90vw] 
-      lg:m-auto lg:justify-center lg:mt-[2rem] items-center gap-[4rem] mt-[5rem] ">
+      lg:m-auto lg:justify-center lg:mt-[2rem] items-center gap-[4rem] mt-[5rem] "
+      >
         {" "}
         {/* Render courses section */}
         {courses.slice(0, 3).map((course, idx) => {
@@ -74,7 +75,8 @@ const DashboardCard = () => {
 
             <div
               key={idx}
-              className="w-[95%] h-[300px] lg:max-w-[270px] shadow-sm rounded-[2rem]   bg-[#BCE8B1]">
+              className="w-[95%] h-[300px] lg:max-w-[270px] shadow-sm rounded-[2rem]   bg-[#BCE8B1]"
+            >
               {" "}
               {/* Render individual course card */}
               <div className="flex flex-col h-fit rounded-t-[2rem]  p-4  lg:p-5 2xl:px-2 lg:h-[35%] justify-center ">
@@ -99,7 +101,8 @@ const DashboardCard = () => {
                   onClick={() => {
                     setDashBoardHover((prev) => !prev);
                     setEditCourseId(course.course_id);
-                  }}>
+                  }}
+                >
                   See more
                 </button>
               </div>{" "}
@@ -127,7 +130,6 @@ const DashboardCard = () => {
           );
         })}
       </div>
-  
     </div> // End of main container div
   );
 };

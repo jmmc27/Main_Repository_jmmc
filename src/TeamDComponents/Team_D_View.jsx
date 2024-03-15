@@ -34,7 +34,7 @@ const Team_D_View = () => {
 
     const link = document.createElement("a");
     link.href = pdfURL;
-   link.download = pdfName;
+    link.download = pdfName;
 
     link.addEventListener("error", () => {
       handleDownloadError();
@@ -48,7 +48,7 @@ const Team_D_View = () => {
     setShowNotification({
       type: "danger",
       message:
-        "You are currently offline. Please connect to the internet and try again."
+        "You are currently offline. Please connect to the internet and try again.",
     });
     setTimeout(() => setShowNotification(null), 5000);
   };
@@ -56,7 +56,7 @@ const Team_D_View = () => {
   const handleDownloadError = () => {
     setShowNotification({
       type: "danger",
-      message: "Error during download. Please try again."
+      message: "Error during download. Please try again.",
     });
     setTimeout(() => setShowNotification(null), 5000);
   };
@@ -64,7 +64,7 @@ const Team_D_View = () => {
   const handleDownloadSuccess = () => {
     setShowNotification({
       type: "success",
-      message: "Download successful!"
+      message: "Download successful!",
     });
     setDisableDownloadButton(true);
     setTimeout(() => {
@@ -78,7 +78,7 @@ const Team_D_View = () => {
     const handleOnline = () => {
       setShowNotification({
         type: "info",
-        message: "You are back online! You can now download certificates."
+        message: "You are back online! You can now download certificates.",
       });
       setTimeout(() => setShowNotification(null), 5000);
     };
@@ -86,7 +86,7 @@ const Team_D_View = () => {
     const handleOffline = () => {
       setShowNotification({
         type: "danger",
-        message: "You are currently offline. Please connect to the internet."
+        message: "You are currently offline. Please connect to the internet.",
       });
       setTimeout(() => setShowNotification(null), 5000);
     };
@@ -222,7 +222,7 @@ const Team_D_View = () => {
             top: "10px",
             right: "10px",
             zIndex: 1000,
-            minWidth: "300px"
+            minWidth: "300px",
           }}
         >
           {showNotification.message}

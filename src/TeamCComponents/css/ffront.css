@@ -84,10 +84,9 @@
     border-radius: 15px;
   }
 
-.c_forum_search:focus {
-  background-color: #ebffe5;
-}
-
+  .c_forum_search:focus {
+    background-color: #ebffe5;
+  }
 
   /* Add the following CSS rules for styling the search button */
   #c_forum_btnsrch {

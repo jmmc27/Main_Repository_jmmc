@@ -48,7 +48,8 @@ const Nav = () => {
   const { users, file } = useContext(ProfileContext);
 
   // const { firstName, lastName, email } = users;
-  const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] = useState(false);
+  const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] =
+    useState(false);
   const { handleLogout } = useAuth();
 
   const handleConfirmLogout = () => {
@@ -65,11 +66,10 @@ const Nav = () => {
     setShowLogoutConfirmationModal(false);
   };
 
-  
-  const userName = localStorage.getItem('username');
-  const firstname = localStorage.getItem('firstName');
-  const lastname = localStorage.getItem('lastName');
-  const email = localStorage.getItem('email');
+  const userName = localStorage.getItem("username");
+  const firstname = localStorage.getItem("firstName");
+  const lastname = localStorage.getItem("lastName");
+  const email = localStorage.getItem("email");
 
   return (
     <>
@@ -80,7 +80,8 @@ const Nav = () => {
             header
               ? "relative flex justify-between items-center lg:justify-normal bg-[#D9FFCF] h-[69px] transition-all "
               : "relative flex justify-between items-center lg:justify-normal bg-transparent h-[69px] transition-all "
-          }>
+          }
+        >
           {/* Link to Dashboard*/}
           <Link to="/teambdashboard" className="">
             <img
@@ -102,7 +103,8 @@ const Nav = () => {
                   dashBoardShow
                     ? "font-semibold text-[#116211] text-center p-1 TeamB_text-shadow   transition-all"
                     : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-                }>
+                }
+              >
                 Dashboard
               </ul>
             </Link>
@@ -113,7 +115,8 @@ const Nav = () => {
                   courseListShow
                     ? "font-semibold text-[#116211] text-center p-1 TeamB_text-shadow   transition-all"
                     : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] hover:bg-opacity-[50%] hover:font-semibold transition-all"
-                }>
+                }
+              >
                 Course List
               </ul>
             </Link>
@@ -124,7 +127,8 @@ const Nav = () => {
                   forumShow
                     ? "font-semibold text-[#116211] text-center p-1 TeamB_text-shadow   transition-all"
                     : "font-bold TeamB_text-shadow   p-1  hover:text-[#116211] transition-all hover:bg-opacity-[50%] hover:font-semibold "
-                }>
+                }
+              >
                 Forums
               </ul>
             </Link>
@@ -135,14 +139,17 @@ const Nav = () => {
               <div className="flex w-[250px]">
                 <div
                   onClick={() => setShow((prev) => !prev)}
-                  className="w-[250px] TeamB_text-shadow gap-x-4 py-2 px-4 bg-[#bce8b1] rounded-[.5rem] shadow-lg flex justify-center items-center lg:hidden">
+                  className="w-[250px] TeamB_text-shadow gap-x-4 py-2 px-4 bg-[#bce8b1] rounded-[.5rem] shadow-lg flex justify-center items-center lg:hidden"
+                >
                   <img
                     className="h-[40px] w-[40px] rounded-[50%] border-2 border-green-800"
                     src={file}
                     alt="profileLogo"
                   />
                   <div className="text-[.8rem] leading-3">
-                    <p>{firstname} {lastname}</p>
+                    <p>
+                      {firstname} {lastname}
+                    </p>
                     <p>{email}</p>
                   </div>
                 </div>
@@ -172,18 +179,21 @@ const Nav = () => {
               />
               <p
                 onClick={() => setShowDropDown((prev) => !prev)}
-                className="text-[15px] ml-2">
+                className="text-[15px] ml-2"
+              >
                 Hi,
               </p>
               <span
                 className="w-[50px] line-clamp-1"
-                onClick={() =>
-                  setShowDropDown((prev) => !prev)
-                }>{userName}</span>
+                onClick={() => setShowDropDown((prev) => !prev)}
+              >
+                {userName}
+              </span>
 
               <span
                 onClick={() => setShowDropDown((prev) => !prev)}
-                className="cursor-pointer">
+                className="cursor-pointer"
+              >
                 {showDropDown ? <FaChevronUp /> : <FaChevronDown />}
               </span>
               {/* Dropdown content */}
@@ -193,7 +203,8 @@ const Nav = () => {
                   <Link
                     to="/profile"
                     onClick={showProfile}
-                    className="w-full text-center ">
+                    className="w-full text-center "
+                  >
                     <p
                       className={
                         profileShow
@@ -203,7 +214,8 @@ const Nav = () => {
                           : showDropDown
                           ? " text-[#000000] rounded-md text-start p-1  hover:text-[#116211]"
                           : ""
-                      }>
+                      }
+                    >
                       <CgProfile className="text-[20px] inline-block align-start mr-3 " />
                       Profile
                     </p>
@@ -212,7 +224,8 @@ const Nav = () => {
                   <Link
                     src="CgProfile"
                     onClick={handleOpenLogoutConfirmationModal}
-                    className="w-full text-center ">
+                    className="w-full text-center "
+                  >
                     <p
                       className={
                         logout
@@ -222,7 +235,8 @@ const Nav = () => {
                           : showDropDown
                           ? " text-red-600 rounded-md text-start p-1 bg-[#D9FFCF]  hover:text-red-500"
                           : " "
-                      }>
+                      }
+                    >
                       <MdOutlineLogout className=" text-[20px] inline-block align-middle mr-3 " />
                       Log out
                     </p>
@@ -239,24 +253,28 @@ const Nav = () => {
         )}
       </nav>
       {showLogoutConfirmationModal && (
-          
-          <div className="logoutmodal-overlay" onClick={handleCloseLogoutConfirmationModal}>
-              <div className="label-container">
-          <div className="container-under">
-            <div className="auth-label">
-              <h1>Logout Confirmation</h1>
-            </div>
-            <div className="logoutmodal">
-              <h2>Are you sure you want to log out?</h2>
-              <div>
-                <button onClick={handleConfirmLogout}>Yes</button>
-                <button onClick={handleCloseLogoutConfirmationModal}>Cancel</button>
+        <div
+          className="logoutmodal-overlay"
+          onClick={handleCloseLogoutConfirmationModal}
+        >
+          <div className="label-container">
+            <div className="container-under">
+              <div className="auth-label">
+                <h1>Logout Confirmation</h1>
+              </div>
+              <div className="logoutmodal">
+                <h2>Are you sure you want to log out?</h2>
+                <div>
+                  <button onClick={handleConfirmLogout}>Yes</button>
+                  <button onClick={handleCloseLogoutConfirmationModal}>
+                    Cancel
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    )}
+      )}
     </>
   );
 };

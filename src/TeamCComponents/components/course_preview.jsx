@@ -13,7 +13,9 @@ function CoursePreview() {
   useEffect(() => {
     const fetchChapters = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/v1/auth/getCourses");
+        const response = await axios.get(
+          "http://localhost:8080/api/v1/auth/getCourses"
+        );
         console.log("Response Data:", response.data); // Log response data
         setChapters(response.data);
       } catch (error) {
@@ -28,11 +30,13 @@ function CoursePreview() {
   useEffect(() => {
     const fetchEnrollmentsByUser = async () => {
       try {
-        const userId = localStorage.getItem('userId');
-        const response = await axios.get(`http://localhost:8080/api/v1/auth/enrollment-by-user/${userId}`);
+        const userId = localStorage.getItem("userId");
+        const response = await axios.get(
+          `http://localhost:8080/api/v1/auth/enrollment-by-user/${userId}`
+        );
         setEnrollments(response.data); // Assuming the response contains the enrollment data
       } catch (error) {
-        console.error('Error fetching enrollments:', error);
+        console.error("Error fetching enrollments:", error);
         // Handle errors
       }
     };
@@ -40,7 +44,7 @@ function CoursePreview() {
     fetchEnrollmentsByUser();
   }, []);
 
-  console.log(enrollments)
+  console.log(enrollments);
 
   const incrementCounterAndAttributes = () => {
     setButtonCounter((prevCounter) => prevCounter + 1); // Increment button counter
@@ -62,26 +66,34 @@ function CoursePreview() {
           {chapters.map((chapterData, index) => {
             const buttonId = `enrollButton${index + 1}`;
             const modalId = `modal${index + 1}`;
-            const isEnrolled = enrollments.some(enrollments => enrollments.course.course_id === chapterData.course_id);
+            const isEnrolled = enrollments.some(
+              (enrollments) =>
+                enrollments.course.course_id === chapterData.course_id
+            );
             console.log(isEnrolled);
             return (
               <div key={index} className="col-md-3 mt-3 ml-1 mb-3">
                 <div
                   className="teamcwholecard card border-success h-100"
-                  style={{ maxWidth: "20rem", borderRadius: "10px", marginBottom: "5px" }}
+                  style={{
+                    maxWidth: "20rem",
+                    borderRadius: "10px",
+                    marginBottom: "5px",
+                  }}
                 >
                   <div className="card-header bg-transparent border-success "></div>
                   <div className="teamccardcard card mb-4">
                     <div className="teamccardbody card-body ">
-                      <h5
-                        className="teamctitlecard card-title fw-bold text-center text-success"
-                      >
+                      <h5 className="teamctitlecard card-title fw-bold text-center text-success">
                         {chapterData.course_title}
                       </h5>
                       <hr className="teamclinepartition" />
                       <div className="teamcparag card-body bg-transparent border-success d-flex flex-column text-left">
                         <span>
-                          {chapterData.course_description.split(' ').slice(0, 20).join(' ')}
+                          {chapterData.course_description
+                            .split(" ")
+                            .slice(0, 20)
+                            .join(" ")}
                         </span>
                         <span
                           className="fw-bold text-end"
@@ -105,13 +117,13 @@ function CoursePreview() {
                         onClick={incrementCounterAndAttributes}
                         disabled={isEnrolled}
                         style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          height: '30px'
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          height: "30px",
                         }}
                       >
-                        {isEnrolled ? 'Enrolled' : 'Enroll Now'}
+                        {isEnrolled ? "Enrolled" : "Enroll Now"}
                       </button>
                     </div>
                   </div>

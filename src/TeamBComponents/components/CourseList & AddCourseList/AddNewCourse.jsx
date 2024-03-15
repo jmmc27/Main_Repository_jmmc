@@ -1,13 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import CopyofCreateNewCourse from './CopyofCreateNewCourse';
-
-
+import CopyofCreateNewCourse from "./CopyofCreateNewCourse";
 
 const AddNewCourse = () => {
   return (
     <div>
-     <CopyofCreateNewCourse/>
+      <CopyofCreateNewCourse />
     </div>
   );
 };

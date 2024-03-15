@@ -1,26 +1,24 @@
-
 {
-    "courselist" : [
-       {
-           "id": 1,
-           "courseTitle" : "Introduction to Programming",
-           "description": "Course 1"
-       },
-       {
-           "id": 2,
-           "courseTitle" : "Cloud Computing",
-           "description": " Course 2"
-       },
-       {
-           "id": 3,
-           "courseTitle" : "Java Programming",
-           "description": "Course 3"
-       },
-       {
-           "id": 4,
-           "courseTitle" : "HTML, CSS, and Bootstrap",
-           "description": " Course 4"
-       }
- 
-   ]
+  "courselist": [
+    {
+      "id": 1,
+      "courseTitle": "Introduction to Programming",
+      "description": "Course 1"
+    },
+    {
+      "id": 2,
+      "courseTitle": "Cloud Computing",
+      "description": " Course 2"
+    },
+    {
+      "id": 3,
+      "courseTitle": "Java Programming",
+      "description": "Course 3"
+    },
+    {
+      "id": 4,
+      "courseTitle": "HTML, CSS, and Bootstrap",
+      "description": " Course 4"
+    }
+  ]
 }

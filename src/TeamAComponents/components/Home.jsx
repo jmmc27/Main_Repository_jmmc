@@ -1,8 +1,7 @@
 import React from "react";
-import Navigation from './Navigation';
-import { useAuth } from './AuthContext';
+import Navigation from "./Navigation";
+import { useAuth } from "./AuthContext";
 import "../styles/Auth.css";
-
 
 const Home = () => {
   // Using the useAuth hook to get authentication-related functions and state

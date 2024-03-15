@@ -29,7 +29,10 @@ const DashBoardCardHover = ({ courseId, closeDashHover }) => {
     // Assuming your API call is successful, update the state to indicate form submission
 
     try {
-      await axios.put(`http://localhost:8080/api/v1/auth/course/${courseId}`, courses); // Makes a PUT request to update course details
+      await axios.put(
+        `http://localhost:8080/api/v1/auth/course/${courseId}`,
+        courses
+      ); // Makes a PUT request to update course details
       // showModal(false);
     } catch (error) {
       console.error("Error submitting form:", error); // Logs error if API call fails
@@ -62,7 +65,8 @@ const DashBoardCardHover = ({ courseId, closeDashHover }) => {
             <div className="pt-2 h-[50%]">
               <div
                 onClick={handleCancel}
-                className="flex justify-end w-full pt-2 cursor-pointer">
+                className="flex justify-end w-full pt-2 cursor-pointer"
+              >
                 {" "}
                 {/* Close button */}
                 <IoMdClose className="text-[1.5rem]" /> {/* Close icon */}

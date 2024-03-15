@@ -54,7 +54,8 @@ const CourseTitleModal = ({ courseId, editTitle }) => {
         <div className="flex m-auto w-[90%] md:w-[550px]  border-[.01rem] drop-shadow-2xl shadow-lg border-black rounded-lg bg-[#EBFFE5] lg:max-w-[550px] ">
           <form
             onSubmit={handleSubmit}
-            className="w-[90%] lg:w-[80%] m-auto py-2 ">
+            className="w-[90%] lg:w-[80%] m-auto py-2 "
+          >
             <div className="flex items-center py-1 text-black lg:font-bold lg:text-3xl lg:py-0">
               <p className=" lg:pb-5 pb-3 lg:font-bold TeamB_text-shadow text-[1.5rem] lg:text-[1.2rem]   lg:mt-5">
                 Rename Course Title
@@ -75,12 +76,16 @@ const CourseTitleModal = ({ courseId, editTitle }) => {
             />
             <div className="flex justify-end w-full pt-8">
               <div className="flex gap-x-5">
-                <span className="  lg:text-[1rem] py-2 cursor-pointer " onClick={handleCancel}>
+                <span
+                  className="  lg:text-[1rem] py-2 cursor-pointer "
+                  onClick={handleCancel}
+                >
                   Cancel
                 </span>
                 <button
                   className="drop-shadow-md TeamB_text-shadow px-3 py-1 rounded-full   lg:w-[90px] lg:h-[40px] lg:rounded-[80px] lg:text-[1rem]  bg-[#126912]  text-[#FFFFFF]  font-bold"
-                  type="submit">
+                  type="submit"
+                >
                   <p>Done</p>
                 </button>
               </div>

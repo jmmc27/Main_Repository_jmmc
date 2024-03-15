@@ -12,7 +12,7 @@ import Verification from "../src/TeamAComponents/components/Verification";
 import ChangePassword from "../src/TeamAComponents/components/ChangePassword";
 import About from "../src/TeamAComponents/components/About";
 import Footer from "./TeamAComponents/components/Footer";
-import Email from "./TeamAComponents/components/Email"; 
+import Email from "./TeamAComponents/components/Email";
 import About from "../src/TeamAComponents/components/About";
 import Home from "./TeamAComponents/components/Home";
 import Dashboard from "./TeamAComponents/components/Dashboard";
@@ -31,10 +31,9 @@ function TeamA_Router() {
         <Route path="/navigation" element={<Navigation />} />
         <Route path="/change" element={<ChangePassword />} />
         <Route path="/about" element={<About />} />
-        <Route path="/email" element={<Email/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
+        <Route path="/email" element={<Email />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
-  
     </>
   );
 }

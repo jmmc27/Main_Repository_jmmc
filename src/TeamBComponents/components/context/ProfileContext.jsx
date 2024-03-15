@@ -65,7 +65,8 @@ const ProfileProvider = ({ children }) => {
         setFile,
         sigfile,
         setSigFile,
-      }}>
+      }}
+    >
       {children}
     </ProfileContext.Provider>
   );

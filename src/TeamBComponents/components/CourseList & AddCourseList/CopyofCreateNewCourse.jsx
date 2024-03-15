@@ -52,19 +52,19 @@ const CopyofCreateNewCourse = () => {
     }
   };
 
- const handleSubmit = async (e) => {
-   try {
-     const currentDate = new Date().toISOString(); // Get current date/time
-     const updatedCourse = { ...course, course_date_created: currentDate };
-     await axios.post(
-       "http://localhost:8080/api/v1/auth/postCourses",
-       updatedCourse
-     );
-     setFormSubmitted(true);
-   } catch (error) {
-     console.error("Error submitting form:", error);
-   }
- };
+  const handleSubmit = async (e) => {
+    try {
+      const currentDate = new Date().toISOString(); // Get current date/time
+      const updatedCourse = { ...course, course_date_created: currentDate };
+      await axios.post(
+        "http://localhost:8080/api/v1/auth/postCourses",
+        updatedCourse
+      );
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
   console.log(course);
   //react hook for tooltip
   const [showTooltipCourseTitle, setShowTooltipCourseTitle] = useState(false);
@@ -78,14 +78,14 @@ const CopyofCreateNewCourse = () => {
           <div className="w-[100%] h-[100vh] flex justify-center items-center ">
             <div className=" flex border-[.01rem] drop-shadow-2xl shadow-lg border-black w-[90%] rounded-lg m-auto bg-[#EBFFE5] md:w-[500px] lg:w-[550px] 2xl:w-h-[672px] 2xl:w-[724px] ">
               <form
-              onSubmit={handleSubmit}
-              onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  handleSubmit();
-                }
-              }}
-       
-                className="w-[90%] lg:w-[80%] m-auto py-2 ">
+                onSubmit={handleSubmit}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSubmit();
+                  }
+                }}
+                className="w-[90%] lg:w-[80%] m-auto py-2 "
+              >
                 <div className="flex items-center py-1 text-black lg:font-bold lg:text-3xl lg:py-0">
                   <p className=" lg:font-bold TeamB_text-shadow   text-[24px] pb-2">
                     Create Course
@@ -143,13 +143,15 @@ const CopyofCreateNewCourse = () => {
                   <div className="flex gap-x-5">
                     <button
                       className="xl:text-[24px]  lg:text-[1rem]"
-                      onClick={() => setShowCreateCourse((prev) => !prev)}>
+                      onClick={() => setShowCreateCourse((prev) => !prev)}
+                    >
                       Cancel
                     </button>
 
                     <button
                       className="drop-shadow-md TeamB_text-shadow px-3 py-1 rounded-full lg:w-[90px] lg:h-[40px] lg:rounded-[80px] lg:text-[1rem] xl:w-[114px] xl:h-[58px] xl:rounded-[100px] bg-[#126912] xl:text-[24px] text-[#FFFFFF]  font-bold"
-                      type="submit">
+                      type="submit"
+                    >
                       <p>Save</p>
                     </button>
                   </div>

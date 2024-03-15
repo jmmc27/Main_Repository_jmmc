@@ -38,7 +38,8 @@ const DeleteAllTopics = ({ deleteAllByTopics, showDeleteAllTopics }) => {
               <div className="flex gap-x-5">
                 <span
                   className="  lg:text-[1rem]"
-                  onClick={() => showDeleteAllTopics((prev) => !prev)}>
+                  onClick={() => showDeleteAllTopics((prev) => !prev)}
+                >
                   {" "}
                   {/* Cancel button */}
                   Cancel
@@ -46,7 +47,8 @@ const DeleteAllTopics = ({ deleteAllByTopics, showDeleteAllTopics }) => {
 
                 <button
                   className="drop-shadow-md TeamB_text-shadow   lg:w-[90px] lg:h-[40px] lg:rounded-[80px] lg:text-[1rem]  bg-[#126912] text-[#FFFFFF]  font-bold"
-                  type="submit">
+                  type="submit"
+                >
                   {" "}
                   {/*button type */}
                   <p>Delete</p> {/* Delete button */}

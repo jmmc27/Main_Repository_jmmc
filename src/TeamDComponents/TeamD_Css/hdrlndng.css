@@ -1,6 +1,6 @@
 /* Styles for the navbar */
 .navbar {
-  background-color: #D9FFCF; /* Background color */
+  background-color: #d9ffcf; /* Background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
   z-index: +100; /* Z-index */
 }
@@ -37,7 +37,7 @@
 }
 
 /* Styles for login button */
-.login_btn{
+.login_btn {
   background-color: #126912; /* Background color */
   padding: 5px; /* Padding */
   color: white; /* Text color */
@@ -45,7 +45,7 @@
 }
 
 /* Styles for registration button */
-.reg_btn{
+.reg_btn {
   background-color: #126912; /* Background color */
   padding: 5px; /* Padding */
   color: white; /* Text color */
@@ -53,15 +53,15 @@
 }
 
 /* Hover styles for login button */
-.login_btn:hover{
-  background-color:  #ffffff ; /* Background color on hover */
+.login_btn:hover {
+  background-color: #ffffff; /* Background color on hover */
   color: #126912; /* Text color on hover */
   border-color: #126912; /* Border color on hover */
 }
 
 /* Hover styles for registration button */
-.reg_btn:hover{
-  background-color:  #ffffff ; /* Background color on hover */
+.reg_btn:hover {
+  background-color: #ffffff; /* Background color on hover */
   color: #126912; /* Text color on hover */
   border-color: #126912; /* Border color on hover */
 }
@@ -77,37 +77,37 @@ button {
 @media (max-width: 768px) {
   /* Styles for navbar navigation on smaller screens */
   .navbar-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center alignment */
-      margin-top: 10px; /* Margin from the top */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center alignment */
+    margin-top: 10px; /* Margin from the top */
   }
-  
+
   /* Styles for navbar collapse */
   .navbar-collapse {
-      background: rgba( 217, 255, 207, 0.65 ); /* Background color */
-      box-shadow: 0 8px 32px -5px rgba( 31, 38, 135, 0.37 ); /* Box shadow */
-      backdrop-filter: blur( 9px ); /* Backdrop filter */
-      -webkit-backdrop-filter: blur( 9px ); /* Webkit backdrop filter */
-      border-bottom-left-radius: 25px; /* Border radius */
-      border-bottom-right-radius: 25px; /* Border radius */
+    background: rgba(217, 255, 207, 0.65); /* Background color */
+    box-shadow: 0 8px 32px -5px rgba(31, 38, 135, 0.37); /* Box shadow */
+    backdrop-filter: blur(9px); /* Backdrop filter */
+    -webkit-backdrop-filter: blur(9px); /* Webkit backdrop filter */
+    border-bottom-left-radius: 25px; /* Border radius */
+    border-bottom-right-radius: 25px; /* Border radius */
   }
 
   /* Styles for nav links on smaller screens */
   .navbar-nav .nav-link {
-      margin-right: 0; /* No margin on the right */
-      margin-bottom: 10px; /* Margin at the bottom */
+    margin-right: 0; /* No margin on the right */
+    margin-bottom: 10px; /* Margin at the bottom */
   }
 
   /* Styles for buttons container on smaller screens */
   .btns {
-      margin-top: 10px; /* Margin from the top */
-      flex-direction: row; /* Row layout */
-      font-size: 14px; /* Font size */
+    margin-top: 10px; /* Margin from the top */
+    flex-direction: row; /* Row layout */
+    font-size: 14px; /* Font size */
   }
 
   /* Additional styles for buttons on smaller screens */
   button {
-      margin-right: 10px; /* Margin on the right */
+    margin-right: 10px; /* Margin on the right */
   }
 }

@@ -10,11 +10,14 @@ const DiscussionPostsInstructor = ({ discussionTitle, authorName }) => {
     <div className="px-3 py-3 mb-3 card row-hover pos-relative border-top-0 border-right-0 border-bottom-0 rounded-0 discussion-container">
       {/* Row for aligning content within the card */}
       <div className="row align-items-center">
-         {/* Column for discussion details */}
+        {/* Column for discussion details */}
         <div className="mb-3 col-md-8 mb-sm-0">
           {/* Discussion title with a link to the forum discussion */}
           <h5>
-            <Link to="/forum_discussion_instructor" className="c_forum_decor text-success">
+            <Link
+              to="/forum_discussion_instructor"
+              className="c_forum_decor text-success"
+            >
               Tsukiden Upcoming Events
             </Link>
           </h5>
@@ -31,7 +34,7 @@ const DiscussionPostsInstructor = ({ discussionTitle, authorName }) => {
         <div className="col-md-4 op-7 d-flex justify-content-end align-items-center">
           {/* Row for displaying discussion statistics */}
           <div className="text-center row op-3">
-             {/* Column for the number of replies */}
+            {/* Column for the number of replies */}
             <div className="px-5 col">
               {/* Icon for replies and the number of replies */}
               <a

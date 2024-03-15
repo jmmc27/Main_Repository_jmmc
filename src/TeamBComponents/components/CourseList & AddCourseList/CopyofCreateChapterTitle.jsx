@@ -74,13 +74,15 @@ const CopyofCreateChapterTitle = ({ courseId, showModal }) => {
                 <div className="flex gap-x-5">
                   <span
                     className="xl:text-[24px]  lg:text-[1rem] cursor-pointer flex items-center justify-center"
-                    onClick={() => showModal((prev) => !prev)}>
+                    onClick={() => showModal((prev) => !prev)}
+                  >
                     <p>Cancel</p>
                   </span>
 
                   <button
                     className="drop-shadow-md TeamB_text-shadow  w-[90px] h-[40px] rounded-[80px] lg:text-[1rem] xl:w-[114px] xl:h-[58px] xl:rounded-[100px] bg-[#126912] xl:text-[24px] text-[#FFFFFF]  font-bold"
-                    type="submit">
+                    type="submit"
+                  >
                     <p>Create</p>
                   </button>
                 </div>

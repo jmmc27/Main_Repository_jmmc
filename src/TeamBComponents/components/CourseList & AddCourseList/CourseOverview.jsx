@@ -50,7 +50,7 @@ const CourseOverview = () => {
           );
         })}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

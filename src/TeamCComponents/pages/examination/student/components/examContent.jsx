@@ -1,6 +1,6 @@
 import CancelModal from "../components/cancelModal";
 import "../s_examPage.css";
-import 'bootstrap/dist/js/bootstrap.js';
+import "bootstrap/dist/js/bootstrap.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -17,8 +17,12 @@ export default function examContent() {
   useEffect(() => {
     const fetchMain = async () => {
       try {
-        const result = await axios.get(`http://localhost:8080/api/v1/auth/questionbyquiz/${id}`);
-        const coursesArray = Array.isArray(result.data) ? result.data : [result.data];
+        const result = await axios.get(
+          `http://localhost:8080/api/v1/auth/questionbyquiz/${id}`
+        );
+        const coursesArray = Array.isArray(result.data)
+          ? result.data
+          : [result.data];
         setMain(coursesArray);
         setTotalItems(coursesArray.length);
       } catch (error) {
@@ -33,7 +37,12 @@ export default function examContent() {
   useEffect(() => {
     // Shuffle choices only once when the component mounts
     if (main.length > 0) {
-      const choicesArray = main.map(con => [con.choice_1, con.choice_2, con.choice_3, con.correct_answer]);
+      const choicesArray = main.map((con) => [
+        con.choice_1,
+        con.choice_2,
+        con.choice_3,
+        con.correct_answer,
+      ]);
       setShuffledChoices(choicesArray.map(shuffleArray));
     }
   }, [main]);
@@ -46,25 +55,22 @@ export default function examContent() {
     }));
   };
 
-// Function to handle scoring and show alert on submission
-const scoringFunction = () => {
-  let score = 0;
+  // Function to handle scoring and show alert on submission
+  const scoringFunction = () => {
+    let score = 0;
 
-  main.forEach((question) => {
-    const { id, correct_answer } = question;
-    const userAnswer = userSelection[id];
+    main.forEach((question) => {
+      const { id, correct_answer } = question;
+      const userAnswer = userSelection[id];
 
-    
+      if (userAnswer === correct_answer) {
+        score += 1; // Increment the score by 1 for each correct answer
+      }
+    });
 
-    if (userAnswer === correct_answer) {
-      score += 1; // Increment the score by 1 for each correct answer
-    }
-  });
-
-  setTotalScore(score);
-  alert(`User scored ${score} out of ${totalItems}.`); // Display total score
-};
-
+    setTotalScore(score);
+    alert(`User scored ${score} out of ${totalItems}.`); // Display total score
+  };
 
   return (
     <>
@@ -82,23 +88,26 @@ const scoringFunction = () => {
                       {ida + 1}. {question}
                     </p>
 
-                    {shuffledChoices.length > 0 && shuffledChoices[ida].map((choice, index) => (
-                      <div className="form-check" key={index}>
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name={`flexRadioDefault${ida}`}
-                          id={`flexRadioDefault${ida}_${index}`}
-                          onChange={() => handleRadioSelection(con.id, choice)}
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor={`flexRadioDefault${ida}_${index}`}
-                        >
-                          {choice}
-                        </label>
-                      </div>
-                    ))}
+                    {shuffledChoices.length > 0 &&
+                      shuffledChoices[ida].map((choice, index) => (
+                        <div className="form-check" key={index}>
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name={`flexRadioDefault${ida}`}
+                            id={`flexRadioDefault${ida}_${index}`}
+                            onChange={() =>
+                              handleRadioSelection(con.id, choice)
+                            }
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor={`flexRadioDefault${ida}_${index}`}
+                          >
+                            {choice}
+                          </label>
+                        </div>
+                      ))}
                   </div>
                 </div>
               );

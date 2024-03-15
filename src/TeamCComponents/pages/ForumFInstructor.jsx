@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../css/ffront.css";
 import { IoIosSearch } from "react-icons/io";
 import DiscussionPosts from "./DiscussionPosts";
-import Nav from "../../TeamBComponents/components/NavBar/Nav";;
-import DiscussionPostsInstructor from './DiscussionPostsInstructor';
+import Nav from "../../TeamBComponents/components/NavBar/Nav";
+import DiscussionPostsInstructor from "./DiscussionPostsInstructor";
 import Footer from "../../TeamBComponents/components/Footer";
 
 const ForumFInstructor = () => {
@@ -62,7 +62,7 @@ const ForumFInstructor = () => {
 
     // Add an event listener to the discussion title for redirection
     var discussionTitleElement = newDiscussionCard.querySelector(
-      `#discussionTitle_${Date.now()}`,
+      `#discussionTitle_${Date.now()}`
     );
     discussionTitleElement.addEventListener("click", function () {
       redirectToDiscussionDetails(discussionTitle, discussionContent);
@@ -72,12 +72,12 @@ const ForumFInstructor = () => {
     var existingDiscussions = document.getElementById("discussionPosts");
     existingDiscussions.insertBefore(
       newDiscussionCard,
-      existingDiscussions.firstChild,
+      existingDiscussions.firstChild
     );
 
     // Reset the input fields and hide the form using state-setting functions
     setDiscussionTitle("");
-    setDiscussionContent("")
+    setDiscussionContent("");
     setShowDiscussionForm(false);
 
     // Show modal and set timeout to close it after 1 second
@@ -137,7 +137,7 @@ const ForumFInstructor = () => {
                 <br />
                 <div className="c_forum_adjustm col-lg-9mx-auto">
                   {/*30/24*/}
-                  
+
                   <div className="mt-20 mb-5 text-left row">
                     <div className="col-lg-6">
                       <button
@@ -267,10 +267,10 @@ const ForumFInstructor = () => {
             </div>
           </div>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default ForumFInstructor;

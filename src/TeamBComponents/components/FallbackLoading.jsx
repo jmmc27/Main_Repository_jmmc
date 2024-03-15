@@ -4,10 +4,15 @@ import React from "react"; // Importing React library
 import { Spinner } from "@material-tailwind/react";
 
 // Defining a functional component named Fallbackloading
-const Fallbackloading = () => { // Defining a functional component named Fallbackloading
+const Fallbackloading = () => {
+  // Defining a functional component named Fallbackloading
   return (
-    <div className="h-[100vh] w-[100%] flex justify-center items-center"> {/*Container div with classes for styling (using Tailwind CSS utility classes) */}
-      <div> {/* Nested div */}
+    <div className="h-[100vh] w-[100%] flex justify-center items-center">
+      {" "}
+      {/*Container div with classes for styling (using Tailwind CSS utility classes) */}
+      <div>
+        {" "}
+        {/* Nested div */}
         <Spinner /> {/* Rendering Spinner component */}
       </div>
     </div>

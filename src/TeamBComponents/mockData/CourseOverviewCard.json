@@ -1,27 +1,24 @@
-
 {
-    "chapterlist" : [
-       {
-           "chapiId": 1,
-           "chapterTitle" : "TITLE OF THE CHAPTER"
-       },
-       {
-            "chapiId": 2,
-           "chapterTitle" : "TITLE OF THE CHAPTER"
-       },
-       {
-            "chapiId": 3,
-           "chapterTitle" : "TITLE OF THE CHAPTER"
-       },
-       {
-            "chapiId": 4,
-           "chapterTitle" : "TITLE OF THE CHAPTER"
-       },
-       {
-            "chapiId": 5,
-           "chapterTitle" : "TITLE OF THE CHAPTER"
-          
-       }
- 
-   ]
+  "chapterlist": [
+    {
+      "chapiId": 1,
+      "chapterTitle": "TITLE OF THE CHAPTER"
+    },
+    {
+      "chapiId": 2,
+      "chapterTitle": "TITLE OF THE CHAPTER"
+    },
+    {
+      "chapiId": 3,
+      "chapterTitle": "TITLE OF THE CHAPTER"
+    },
+    {
+      "chapiId": 4,
+      "chapterTitle": "TITLE OF THE CHAPTER"
+    },
+    {
+      "chapiId": 5,
+      "chapterTitle": "TITLE OF THE CHAPTER"
+    }
+  ]
 }

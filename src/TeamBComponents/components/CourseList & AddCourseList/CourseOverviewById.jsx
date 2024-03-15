@@ -168,7 +168,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                   {hideSearch && (
                     <div
                       ref={searchContainerRef}
-                      className="h-[20vh] w-[100%] absolute bg-[#fff] top-10 z-10 shadow-lg rounded-md pt-2">
+                      className="h-[20vh] w-[100%] absolute bg-[#fff] top-10 z-10 shadow-lg rounded-md pt-2"
+                    >
                       <div className="flex justify-end w-full cursor-pointer">
                         <IoMdClose
                           onClick={() => setHideSearch(false)}
@@ -190,7 +191,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                                   return (
                                     <div key={idx}>
                                       <Link
-                                        to={`/teambtopicpage/${chapter_id}`}>
+                                        to={`/teambtopicpage/${chapter_id}`}
+                                      >
                                         <p className="text-[.9rem] pl-2 font-light TeamB_text-shadow cursor-pointer line-clamp-1">
                                           {chapter_title}
                                         </p>
@@ -243,13 +245,15 @@ const CourseOverviewById = ({ courseTitle }) => {
                               return (
                                 <div
                                   key={idx}
-                                  className="relative m-0 lg:w-full">
+                                  className="relative m-0 lg:w-full"
+                                >
                                   <div className="flex items-center justify-center w-full gap-4 pb-4 m-auto">
                                     <div className="h-[1.3rem] w-[1.3rem] bg-[#126912] rounded-[100%] hidden lg:flex"></div>
 
                                     <Link
                                       to={`/teambtopicpage/${chapter_id}`}
-                                      className="relative 2xl:rounded-[20px] w-[60vw] rounded-lg  lg:flex lg:items-center lg:font-medium lg:text-[1rem] 2xl:text-[24px] bg-[#126912] py-1  text-[.8rem]  text-white lg:rounded-[1rem] line-clamp-1">
+                                      className="relative 2xl:rounded-[20px] w-[60vw] rounded-lg  lg:flex lg:items-center lg:font-medium lg:text-[1rem] 2xl:text-[24px] bg-[#126912] py-1  text-[.8rem]  text-white lg:rounded-[1rem] line-clamp-1"
+                                    >
                                       {/* <p className="text-shadow">
                                         CHAPTER {chapterCount}:
                                       </p> */}
@@ -266,7 +270,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                                                 (prev) => !prev
                                               );
                                               setEditChapterTitle(chapter_id);
-                                            }}>
+                                            }}
+                                          >
                                             <FaEdit />
                                           </div>
 
@@ -277,7 +282,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                                                 (prev) => !prev
                                               );
                                               setDeleteChapterTitle(chapter_id);
-                                            }}>
+                                            }}
+                                          >
                                             <RiDeleteBinLine />
                                           </div>
                                         </div>
@@ -292,7 +298,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                                               (prev) => !prev
                                             );
                                             setEditChapterTitle(chapter_id);
-                                          }}>
+                                          }}
+                                        >
                                           <FaEdit />
                                         </div>
 
@@ -302,7 +309,8 @@ const CourseOverviewById = ({ courseTitle }) => {
                                             setDeleteModalVisible(
                                               (prev) => !prev
                                             )
-                                          }>
+                                          }
+                                        >
                                           <RiDeleteBinLine />
                                         </div>
                                       </div>
@@ -381,7 +389,8 @@ const CourseOverviewById = ({ courseTitle }) => {
             <div className="lg:rounded-[.5rem] lg:h-[35px] 2xl:h-[10px] flex items-center justify-center cursor-pointer  mx-2 my-2 bg-[#BCE8B1]">
               <button
                 className="flex items-center justify-center lg:w-[155px]  2xl:w-[481px ]"
-                onClick={() => setShowChapModal((prev) => !prev)}>
+                onClick={() => setShowChapModal((prev) => !prev)}
+              >
                 <span className="pr-1">
                   <IoAdd className="text-[2rem] lg:text-[1.5rem] text-white" />
                 </span>
@@ -394,7 +403,8 @@ const CourseOverviewById = ({ courseTitle }) => {
             <div className="lg:rounded-[.5rem] lg:h-[35px] 2xl:h-[10px] flex items-center justify-center cursor-pointer mx-2 my-2 bg-[#BCE8B1]">
               <button
                 className="flex items-center justify-center lg:w-[155px]  2xl:w-[481px]"
-                onClick={() => setShowChapModal((prev) => !prev)}>
+                onClick={() => setShowChapModal((prev) => !prev)}
+              >
                 <span className="pr-1">
                   <IoAdd className="text-[2rem] lg:text-[1.5rem] text-white" />
                 </span>

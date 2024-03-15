@@ -178,7 +178,8 @@ const ForumDInstructor = () => {
           <Link
             to="/ForumFInstructor"
             id="TeamBReturnButtonFf"
-            className="btn btn-secondary">
+            className="btn btn-secondary"
+          >
             <FaArrowLeft />
           </Link>
           <div className="TeamCForumC_Forumcard">
@@ -188,7 +189,8 @@ const ForumDInstructor = () => {
                   <h6 className="mb-1 nameUSerfw-bold text-success">@Luigi</h6>
                   <p
                     id="post-time"
-                    className="mb-0 TeamC_ForumD text-muted small">
+                    className="mb-0 TeamC_ForumD text-muted small"
+                  >
                     {new Date().toLocaleString()}
                   </p>
                 </div>
@@ -196,17 +198,20 @@ const ForumDInstructor = () => {
                   <button
                     className="TeamC_forum_link link-muted"
                     onClick={toggleDropdown}
-                    aria-expanded={dropdownOpen ? "true" : "false"}>
+                    aria-expanded={dropdownOpen ? "true" : "false"}
+                  >
                     <BsThreeDots className="TeamCdots bx bx-dots-horizontal-rounded" />
                   </button>
                   <ul
                     className={`dropdown-menu${dropdownOpen ? " show" : ""}`}
-                    aria-labelledby="dropdownMenuLink">
+                    aria-labelledby="dropdownMenuLink"
+                  >
                     <li>
                       <Link
                         to="#"
                         className="dropdown-item"
-                        onClick={handleEditClick}>
+                        onClick={handleEditClick}
+                      >
                         Edit
                       </Link>
                     </li>
@@ -214,7 +219,8 @@ const ForumDInstructor = () => {
                       <Link
                         to="#"
                         className="dropdown-item"
-                        onClick={handleDeleteClick}>
+                        onClick={handleDeleteClick}
+                      >
                         Delete
                       </Link>
                     </li>
@@ -247,7 +253,8 @@ const ForumDInstructor = () => {
                 </a> */}
                 <div
                   onClick={handleLike}
-                  className="TeamCFlex d-flex align-items-center me-3">
+                  className="TeamCFlex d-flex align-items-center me-3"
+                >
                   <AiOutlineLike />
                   {/*2.12.24 */}
                   <div className="like-counter">{likeCount}</div>
@@ -255,7 +262,8 @@ const ForumDInstructor = () => {
                 {/*2.12.24 */}
                 <div
                   onClick={handleDislike}
-                  className="TeamCFlex d-flex align-items-center me-3">
+                  className="TeamCFlex d-flex align-items-center me-3"
+                >
                   <AiOutlineDislike />
                   {/*2.12.24 */}
                   <div className="dislike-counter">{dislikeCount}</div>
@@ -264,7 +272,8 @@ const ForumDInstructor = () => {
                 <a
                   href="#!"
                   className="TeamCFlex d-flex align-items-center me-3 reply-button"
-                  onClick={handleReplyClick}>
+                  onClick={handleReplyClick}
+                >
                   <MdOutlineReply />
                   Reply
                 </a>
@@ -277,10 +286,12 @@ const ForumDInstructor = () => {
                     rows="3"
                     placeholder="Write your reply..."
                     value={replyContent}
-                    onChange={handleReplyContentChange}></textarea>
+                    onChange={handleReplyContentChange}
+                  ></textarea>
                   <button
                     className="mt-2 TeamCForumBtnPrime btn btn-primary"
-                    onClick={handlePostReply}>
+                    onClick={handlePostReply}
+                  >
                     Post
                   </button>
                 </div>

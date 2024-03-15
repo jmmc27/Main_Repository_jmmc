@@ -53,7 +53,8 @@ const CourseOverviewCard = ({ courseTitle }) => {
             <div className=" w-[100%] justify-between hidden lg:flex">
               <Link
                 to="/teambcourselist"
-                className=" items-center cursor-pointer w-[10%] absolute left-0 top-[-.3rem]  hidden lg:flex pb-4">
+                className=" items-center cursor-pointer w-[10%] absolute left-0 top-[-.3rem]  hidden lg:flex pb-4"
+              >
                 <span className="text-[2.5rem] text-black px-5">
                   <IoArrowBackCircle />
                 </span>

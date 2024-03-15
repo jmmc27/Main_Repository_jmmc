@@ -6,11 +6,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 //import mockdata
 import data from "../../mockData/CourseOverviewCard.json";
-
-
 
 //back icon and back function
 import { IoArrowBackCircle } from "react-icons/io5";
@@ -64,7 +61,8 @@ const CreateNewChapterTitle = () => {
         <div className="relative w-full h-full mt-5 ">
           <div
             className="absolute left-2 top-0 flex items-center cursor-pointer w-[10%]"
-            onClick={goBack}>
+            onClick={goBack}
+          >
             <span className="text-[2.5rem]">
               <IoArrowBackCircle />
             </span>
@@ -92,11 +90,13 @@ const CreateNewChapterTitle = () => {
               return (
                 <div
                   key={idx}
-                  className="flex 2xl:w-[1186px] 2xl:h-[65px] lg:w-[80%] justify-between items-center">
+                  className="flex 2xl:w-[1186px] 2xl:h-[65px] lg:w-[80%] justify-between items-center"
+                >
                   <div className="h-[1.5rem] w-[1.5rem] bg-[#126912] rounded-[100%]"></div>
                   <div
                     className=" 2xl:rounded-[20px] lg:flex lg:items-center lg:font-medium lg:text-[1rem] 2xl:text-[24px] w-[90%] bg-[#126912]  py-1 text-center text-[.8rem]  lg:p-5 text-white
-              lg:h-[50px] lg:rounded-[1rem]">
+              lg:h-[50px] lg:rounded-[1rem]"
+                  >
                     <p className="TeamB_text-shadow ">
                       CHAPTER {chapter.chapterId}:
                     </p>
@@ -126,5 +126,5 @@ const CreateNewChapterTitle = () => {
 
 export default CreateNewChapterTitle;
 
-//february 2 2024 creation of this page and UI -gem 
+//february 2 2024 creation of this page and UI -gem
 //february 3 modification of ui and functionalities -gem

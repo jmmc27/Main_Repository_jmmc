@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { data } from "../data/quiz_content_data";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // Function to show the next topic
 function showNextTopic(topicNumber) {
@@ -8,24 +8,24 @@ function showNextTopic(topicNumber) {
   hideAllTopics();
 
   // Show the selected topic
-  let topicElement = document.getElementById('topic' + topicNumber);
+  let topicElement = document.getElementById("topic" + topicNumber);
   if (topicElement) {
-    topicElement.classList.remove('c_chapcourse_hidden');
+    topicElement.classList.remove("c_chapcourse_hidden");
   }
 }
 
 // Function to hide all topics
 function hideAllTopics() {
   for (let i = 0; i <= 2; i++) {
-    let topicElement = document.getElementById('topic' + i);
+    let topicElement = document.getElementById("topic" + i);
     if (topicElement) {
-      topicElement.classList.add('hidden');
+      topicElement.classList.add("hidden");
     }
   }
 
-  let iframeElement = document.getElementById('iframe');
+  let iframeElement = document.getElementById("iframe");
   if (iframeElement) {
-    iframeElement.classList.add('hidden');
+    iframeElement.classList.add("hidden");
   }
 }
 
@@ -40,20 +40,22 @@ function enroll(modalNumber) {
 
 // Function to redirect to Google
 function redirectToGoogle() {
-  window.location.href = 'https://www.google.com';
+  window.location.href = "https://www.google.com";
 }
 
 const useToggleChoices = (initialChoices) => {
-  const [selectedChoice, setSelectedChoice] = useState('');
+  const [selectedChoice, setSelectedChoice] = useState("");
 
   const handleToggle = (choice) => {
-    setSelectedChoice(choice === selectedChoice ? '' : choice);
+    setSelectedChoice(choice === selectedChoice ? "" : choice);
   };
 
   return {
     selectedChoice,
     handleToggle,
-    choices: initialChoices.map((choice) => choice.charAt(0).toUpperCase() + choice.slice(1)),
+    choices: initialChoices.map(
+      (choice) => choice.charAt(0).toUpperCase() + choice.slice(1)
+    ),
   };
 };
 
@@ -72,7 +74,6 @@ const getOptionText = (index, question) => {
       return "";
   }
 };
-
 
 let buttonCounter = 1;
 let modalCounter = 1;
@@ -100,7 +101,13 @@ function incrementAttributes() {
   modalCounter++;
 }
 
-
-
 // Exporting all functions and hooks
-export { showNextTopic, hideAllTopics, enroll, redirectToGoogle, useToggleChoices, getOptionText, incrementAttributes};
+export {
+  showNextTopic,
+  hideAllTopics,
+  enroll,
+  redirectToGoogle,
+  useToggleChoices,
+  getOptionText,
+  incrementAttributes,
+};

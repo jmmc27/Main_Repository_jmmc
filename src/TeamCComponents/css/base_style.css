@@ -1,6 +1,5 @@
 .btn-view-course:hover {
   background-color: #145304; /* Changes background color on hover */
-
 }
 
 #c_dashboard_header {
@@ -11,7 +10,7 @@
   filter: drop-shadow(0 0 1em #484848); /* Applies drop shadow on hover */
 }
 
-.c_chapter_cardtext{
+.c_chapter_cardtext {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,30 +18,32 @@
   gap: 10px;
 }
 
-#c_preview_courseprev{
+#c_preview_courseprev {
   font-size: 1.8rem;
 }
 
 /* .buttonReturn:hover .c_chapter_return {
   transform: scale(1.1); /* Scales up chapter return button on hover */
- 
 
-#c_course_courses:hover, #c_course_cardmain {
-    filter: drop-shadow(0 0 1em #116315); /* Applies drop shadow to course item container on hover */
-    color: #0e3b03;
+#c_course_courses:hover,
+#c_course_cardmain {
+  filter: drop-shadow(
+    0 0 1em #116315
+  ); /* Applies drop shadow to course item container on hover */
+  color: #0e3b03;
 }
 #c_course_itemcontainer:hover {
   filter: drop-shadow(
     0 0 1em #126912
-   ); /* Applies drop shadow to course item container on hover */
-   color: #0e3b03;
+  ); /* Applies drop shadow to course item container on hover */
+  color: #0e3b03;
 }
 
 /* CARD POSITIONING */
 #c_cardpreview_cardouter {
   display: flex; /* Changes display to flex layout */
   flex-direction: row; /* Arranges items in a row */
-  justify-content:center; /* Aligns items to the center */
+  justify-content: center; /* Aligns items to the center */
   max-height: 100%; /* Sets maximum height to 100% */
   box-sizing: border-box; /* Includes border and padding in the element's total width and height */
 }
@@ -52,11 +53,13 @@
 }
 
 #c_preview_headerSub {
-    font-size: 1.5rem; /* Overrides the font size of the header subtitle (Note: This rule will override the previous one for the same selector) */
+  font-size: 1.5rem; /* Overrides the font size of the header subtitle (Note: This rule will override the previous one for the same selector) */
 }
 
-#c_assessment_courses:hover{
-    filter: drop-shadow(0 0 1em #484848) /* Applies drop shadow effect on hover for SQL, SVN, and HTML assessments */
+#c_assessment_courses:hover {
+  filter: drop-shadow(
+    0 0 1em #484848
+  ); /* Applies drop shadow effect on hover for SQL, SVN, and HTML assessments */
 }
 
 #enrollButton1,
@@ -73,11 +76,10 @@
   margin-right: 5rem; /* Sets right margin of course main container */
 }
 
-.ln{
+.ln {
   width: 100%;
   margin-top: 5px;
 }
-
 
 #c_course_tag {
   /*margin-top: 0.5rem; /* Adds top margin to the course tag */
@@ -91,8 +93,8 @@
 
 #c_course_seemoretext {
   font-size: 0.9rem;
-  position: relative; 
-  color: #677266;/* Sets the color of the course see more text */
+  position: relative;
+  color: #677266; /* Sets the color of the course see more text */
   cursor: pointer; /* Changes the cursor to pointer on hover */
 }
 
@@ -106,7 +108,6 @@
   text-align: left;
 }
 
-
 .c_course_cardmain {
   display: flex;
   flex-direction: column;
@@ -117,11 +118,11 @@
   border-radius: 0.5rem; /* Sets the border radius of the course card main */
 }
 
-#c_course_courses{
+#c_course_courses {
   margin: 5px;
 }
 
-#c_course_cardmain{
+#c_course_cardmain {
   border: none;
 }
 
@@ -150,7 +151,7 @@
   margin-right: 10rem; /* Adds right margin to the main content layout */
 }
 
-.lnf{
+.lnf {
   margin-bottom: 20px;
   width: 100%;
   height: 3px;
@@ -193,7 +194,7 @@
   margin: 20px;
 }
 
-.bckbtnncrsttl{
+.bckbtnncrsttl {
   display: flex;
   flex-direction: row;
   align-items: left;
@@ -207,7 +208,7 @@
     max-height: 100%; /* Sets maximum height to 100% */
   }
 
-  #c_course_seemoretext{
+  #c_course_seemoretext {
     font-size: 0.8rem;
     color: #677266;
   }
@@ -221,7 +222,7 @@
     max-height: 100%; /* Sets maximum height to 100% */
   }
 
-  #c_course_seemoretext{
+  #c_course_seemoretext {
     font-size: 0.8rem;
     color: #677266;
   }
@@ -241,7 +242,7 @@
     border-radius: 1rem; /* Applies border radius to course card body */
   }
 
-  .c_chapter_cardtext{
+  .c_chapter_cardtext {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -249,7 +250,7 @@
     gap: 10px;
   }
 
-  #c_course_tag{
+  #c_course_tag {
     width: 6rem;
     transition: all 2s ease-in-out;
   }
@@ -260,12 +261,11 @@
     text-align: left;
   }
 
-
   #c_maincontent_textcontainer {
     font-size: 18px; /* Adjusts font size of text container in main content */
   }
 
-  .c_course_cardmain{
+  .c_course_cardmain {
     display: flex;
     flex-direction: column;
     margin-top: 10px; /* Adds top margin to the course card main */
@@ -286,12 +286,12 @@
     transition: all 2s ease-in-out;
   }
 
-  #c_course_tag{
+  #c_course_tag {
     width: 4rem;
     transition: all 2s ease-in-out;
   }
 
-  .c_chapter_cardtext{
+  .c_chapter_cardtext {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -310,8 +310,7 @@
     text-align: left;
   }
 
-
-  .c_course_cardmain{
+  .c_course_cardmain {
     display: flex;
     flex-direction: column;
     margin-top: 10px; /* Adds top margin to the course card main */
@@ -321,7 +320,7 @@
     border-radius: 0.5rem; /* Sets the border radius of the course card main */
   }
 
-  #c_course_seemoretext{
+  #c_course_seemoretext {
     font-size: 0.8rem;
     color: #677266;
   }
@@ -333,7 +332,7 @@
     margin-right: 25px;
   }
 
-  #c_course_tag{
+  #c_course_tag {
     width: 4rem;
     transition: all 2s ease-in-out;
   }
@@ -347,7 +346,7 @@
     transition: all 2s ease-in-out;
   }
 
-  .c_chapter_cardtext{
+  .c_chapter_cardtext {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -383,7 +382,7 @@
     width: 300px;
   }
 
-  .c_course_cardmain{
+  .c_course_cardmain {
     display: flex;
     flex-direction: column;
     margin-top: 10px; /* Adds top margin to the course card main */
@@ -393,7 +392,7 @@
     border-radius: 0.5rem; /* Sets the border radius of the course card main */
   }
 
-  #c_course_seemoretext{
+  #c_course_seemoretext {
     font-size: 0.8rem;
     color: #677266;
   }
@@ -405,7 +404,7 @@
     margin-right: 1px;
   }
 
-  #c_course_tag{
+  #c_course_tag {
     width: 4rem;
     transition: all 2s ease-in-out;
   }
@@ -418,7 +417,7 @@
     transition: all 2s ease-in-out;
   }
 
-  .c_chapter_cardtext{
+  .c_chapter_cardtext {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -441,7 +440,6 @@
     font-size: 1rem; /* Adjusts font size of course tag text and card body */
     text-align: left;
   }
-
 
   #c_maincontent_textcontainer {
     width: 20rem; /* Sets width of text container */
@@ -479,7 +477,7 @@
     justify-content: flex-end; /* Aligns content to the end */
   }
 
-  .c_course_cardmain{
+  .c_course_cardmain {
     display: flex;
     flex-direction: column;
     margin-top: 10px; /* Adds top margin to the course card main */
@@ -489,25 +487,26 @@
     border-radius: 0.5rem; /* Sets the border radius of the course card main */
   }
 
-  .card-container{
+  .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  #c_preview_headerTitle, #c_preview_headerSub{
+  #c_preview_headerTitle,
+  #c_preview_headerSub {
     font-size: 1rem;
   }
 
-  #c_preview_courseprev{
+  #c_preview_courseprev {
     font-size: 1.3rem;
   }
 
-  #teamctitlecard{
+  #teamctitlecard {
     font-size: 1rem;
   }
 
-  #c_course_seemoretext{
+  #c_course_seemoretext {
     font-size: 0.8rem;
     color: #677266;
   }

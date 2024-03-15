@@ -79,7 +79,6 @@ import Component_MainContent from "./TeamCComponents/components/quiz_form";
 import StudentExamPage from "./TeamCComponents/pages/examination/student/s_examPage";
 import InstructorExamPage from "./TeamCComponents/pages/examination/instructor/i_examPage";
 
-
 // team D
 import Team_D_View from "./TeamDComponents/Team_D_View";
 import Team_D_Verification from "./TeamDComponents/Team_D_Verification";
@@ -107,7 +106,7 @@ function TeamIntegrationRoutes() {
           <Route path="/about" element={<About />} />
           <Route path="/email" element={<Email />} />
           <Route path="new" element={<TeamA_NewPass />} />
-          <Route path="ProfileModal" element={<ProfileModal/>}/>
+          <Route path="ProfileModal" element={<ProfileModal />} />
 
           {/* TEAM B */}
           <Route path="/teambdashboard" element={<TeamB_Dashboard />} />
@@ -143,22 +142,27 @@ function TeamIntegrationRoutes() {
           <Route path="/AssessmentQuiz" element={<AssessmentQuiz />} />
           <Route path="/ForumFInstructor" element={<ForumFInstructor />} />
           <Route path="/forum_discussion" element={<ForumD />} />
-          <Route path="/forum_discussion_instructor" element={<ForumDInstructor />}/>
+          <Route
+            path="/forum_discussion_instructor"
+            element={<ForumDInstructor />}
+          />
           <Route path="/api/v1/auth/chapters/:id" element={<ChapterList />} />
           <Route path="/api/v1/auth/topics/:id" element={<TeamC_Topics />} />
           <Route path="/quizform" element={<TeamC_QuizForm />} />
-          <Route path="/api/v1/auth/studentexam/:id" element={<StudentExamPage />} />
+          <Route
+            path="/api/v1/auth/studentexam/:id"
+            element={<StudentExamPage />}
+          />
           <Route path="/instructorexam" element={<InstructorExamPage />} />
 
-
           {/* Team D */}
-          <Route path="/CertGen" element={<CertificateGenerator/>}/>
+          <Route path="/CertGen" element={<CertificateGenerator />} />
           <Route path="/certificate" element={<Team_D_Content />} />
           <Route path="/landing" element={<Landing />} />
           <Route path="/viewCert" element={<Team_D_View />} />
           <Route path="/verification" element={<Team_D_Verification />} />
           <Route path="/verif_nonuser" element={<Team_D_Verif_nonuser />} />
-          
+
           <Route path="/about" element={<About />} />
           <Route
             path="*"
@@ -169,7 +173,8 @@ function TeamIntegrationRoutes() {
                   textAlign: "center",
                   marginTop: "20%",
                   fontSize: "5rem",
-                }}>
+                }}
+              >
                 404 - Page Not Found
               </h1>
             }

@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */ // Disables prop-types linting for this file
-import {  createContext, useState } from "react"; // Imports React's createContext and useState functions
+import { createContext, useState } from "react"; // Imports React's createContext and useState functions
 
 export const DashBoardContext = createContext(); // Creates a context named DashBoardContext
 
-const DashBoardProvider = ({ children }) => { // Defines a component named DashBoardProvider with children as a prop
+const DashBoardProvider = ({ children }) => {
+  // Defines a component named DashBoardProvider with children as a prop
   //react hook for dashboardhover
   const [dashBoardHover, setDashBoardHover] = useState(false); // Initializes state for dashboard hover
 
@@ -21,7 +22,8 @@ const DashBoardProvider = ({ children }) => { // Defines a component named DashB
         hoverClose, // Provide HoverClose state variable
         showDropDown, // Provde showDropDown state variable
         setShowDropDown, // Provide setShowDropDown function
-      }}>
+      }}
+    >
       {children} {/* Renders the children components */}
     </DashBoardContext.Provider>
   );

@@ -111,7 +111,8 @@ const NavBarProvider = ({ children }) => {
         showDashBoard,
         showProfile,
         showCourseList,
-      }}>
+      }}
+    >
       {children}
     </NavBarContext.Provider>
   );

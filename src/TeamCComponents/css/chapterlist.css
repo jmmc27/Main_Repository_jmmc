@@ -1,63 +1,60 @@
+.c_chapter_rtrncontainer {
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-bottom: -57px;
+}
 
-.c_chapter_rtrncontainer{
+@media only screen and (max-width: 2140px) {
+  .c_chapter_rtrncontainer {
     margin-top: 30px;
-    margin-left: 40px;
-    margin-bottom: -57px;
+    margin-left: 20px;
+  }
 }
 
-@media only screen and (max-width: 2140px){
-    .c_chapter_rtrncontainer{
-        margin-top: 30px;
-        margin-left: 20px;
-    }
+@media only screen and (max-width: 1440px) {
+  .c_chapter_rtrncontainer {
+    margin-top: 30px;
+    margin-left: 20px;
+  }
 
+  .c_crs_ttl {
+    margin-left: 20px;
+    font-size: 1rem;
+  }
 }
 
-@media only screen and (max-width: 1440px){
-    .c_chapter_rtrncontainer{
-        margin-top: 30px;
-        margin-left: 20px;
-    }
+@media only screen and (max-width: 1024px) {
+  .c_chapter_rtrncontainer {
+    margin-top: 30px;
+    margin-left: 10px;
+  }
 
-    .c_crs_ttl {
-        margin-left: 20px;
-        font-size: 1rem;
-    }
-}
-
-@media only screen and (max-width: 1024px){
-    .c_chapter_rtrncontainer{
-        margin-top: 30px;
-        margin-left: 10px;
-    }
-
-    .c_crs_ttl {
-        margin-left: 50px;
-        font-size: 1rem;
-    }
+  .c_crs_ttl {
+    margin-left: 50px;
+    font-size: 1rem;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .c_chapter_rtrncontainer{
-        margin-top: 40px;
-        margin-left: 5px;
-    }
+  .c_chapter_rtrncontainer {
+    margin-top: 30px;
+    margin-left: 5px;
+  }
 
-    .c_crs_ttl {
-        margin-left: 50px;
-        font-size: 1rem;
-        margin-top: -50px;
-    }
+  .c_crs_ttl {
+    margin-left: 40px;
+    font-size: 1rem;
+  }
 }
 
-@media only screen and (max-width: 480){
-    .c_chapter_rtrncontainer{
-        margin-top: 30px;
-        margin-left: 5px;
-    }
+@media only screen and (max-width: 480) {
+  .c_chapter_rtrncontainer {
+    margin-top: 30px;
+    margin-left: 5px;
+  }
 
-    .c_crs_ttl {
-        margin-left: 50px;
-        font-size: 1rem;
-    }
+  .c_crs_ttl {
+    margin-left: 50px;
+    font-size: 1rem;
+  }
 }
