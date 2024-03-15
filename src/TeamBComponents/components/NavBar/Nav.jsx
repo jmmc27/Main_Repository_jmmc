@@ -3,7 +3,6 @@
 
 import React, { useContext } from "react"; // Importing React and useContext hook
 import logo from "../../../assets/TeamBassests/companyLogo.png"; // Importing logo image
-
 //import react icon
 import { GiHamburgerMenu } from "react-icons/gi";
 import NavSideBar from "./NavSideBar"; // Importing NavSideBar component
@@ -12,7 +11,7 @@ import { CgProfile } from "react-icons/cg"; // Importing CgProfile icon componen
 import { MdOutlineLogout } from "react-icons/md"; //// Importing MdOutlineLogout icon component
 //import profile logo image file
 import profileLogo from "../../../assets/TeamBassests/Picture.png";
-
+import ProfileModal from "../../../TeamAComponents/components/ProfileModal";
 //importing react icon
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
@@ -23,7 +22,7 @@ import { ProfileContext } from "../context/ProfileContext";
 import { useAuth } from "../../../TeamAComponents/components/AuthContext";
 import { useState } from "react";
 //Nav functional component
-const Nav = () => {
+const Nav = ({showModal, handleClose}) => {
   //Destructuring values from NavBarContext
   const {
     header,
@@ -46,6 +45,15 @@ const Nav = () => {
   } = useContext(NavBarContext);
 
   const { users, file } = useContext(ProfileContext);
+  const [showProfileModal, setShowProfileModal] = useState(false); // State to control the visibility of the profile modal
+
+  const openProfileModal = () => {
+    setShowProfileModal(true); // Function to open the profile modal
+  };
+
+  const closeProfileModal = () => {
+    setShowProfileModal(false); // Function to close the profile modal
+  };
 
   // const { firstName, lastName, email } = users;
   const [showLogoutConfirmationModal, setShowLogoutConfirmationModal] =
@@ -201,8 +209,8 @@ const Nav = () => {
                 <div className="bg-[#D9FFCF] absolute right-0 top-12 lg:top-10 w-full flex flex-col justify-between rounded-md items-center border-solid border-[1px] border-[#116211]">
                   {/* Link to profile */}
                   <Link
-                    to="/profile"
-                    onClick={showProfile}
+                    to="#"
+                    onClick={openProfileModal}
                     className="w-full text-center "
                   >
                     <p
@@ -218,7 +226,13 @@ const Nav = () => {
                     >
                       <CgProfile className="text-[20px] inline-block align-start mr-3 " />
                       Profile
+                      
                     </p>
+                    <ProfileModal
+                      showModal={showProfileModal}
+                      handleClose={closeProfileModal}
+                    />
+                    
                   </Link>
                   {/* Link to logout */}
                   <Link
@@ -275,6 +289,7 @@ const Nav = () => {
           </div>
         </div>
       )}
+      <ProfileModal showModal={showModal} />
     </>
   );
 };

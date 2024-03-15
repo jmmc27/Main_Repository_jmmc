@@ -19,7 +19,7 @@ const Team_D_HeaderLanding = () => {
 
   return (
     <Navbar expand="lg">
-      <Navbar.Brand as={Link} to="/" onClick={closeNavbar}>
+      <Navbar.Brand as={Link} to="/teamcdashboard" onClick={closeNavbar}>
         <img src={TsukidenLogo} alt="Logo" />
       </Navbar.Brand>
       <Navbar.Toggle

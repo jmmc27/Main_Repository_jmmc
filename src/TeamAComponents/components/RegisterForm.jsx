@@ -56,7 +56,7 @@ function RegisterForm({
     }
 
     // if (errorMessage === '') {
-    //   errorMessage = <span style={{ color: 'green' }}>ANSARAP MO PIA </span>;
+    //   errorMessage = <span style={{ color: 'green' }}> </span>;
     // }
 
     setError(errorMessage); // Set the error message as a string

@@ -154,7 +154,7 @@ const Team_D_HeaderV2 = ({ onUserDataFetched, openModal, showModal }) => {
   return (
     <>
       <nav className="navbar_TeamD">
-        <NavLink to="/" onClick={closeMobileNavbar}>
+        <NavLink to="/teamcdashboard" onClick={closeMobileNavbar}>
           <img className="teamDimg" src={TsukidenLogo} alt="Logo" />
         </NavLink>
         <div>
@@ -181,12 +181,16 @@ const Team_D_HeaderV2 = ({ onUserDataFetched, openModal, showModal }) => {
             {/* Profile Links */}
             <li className="profile_link">
               <NavLink
-                to="/profile"
+                to="#"
                 activeClassName="active"
-                onClick={closeMobileNavbar}
+                onClick={openProfileModal}
               >
                 Profile
               </NavLink>
+              <ProfileModal
+                showModal={showProfileModal}
+                handleClose={closeProfileModal}
+              />
             </li>
             <li className="profile_link">
               <NavLink
