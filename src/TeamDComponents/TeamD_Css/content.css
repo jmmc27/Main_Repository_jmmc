@@ -16,32 +16,43 @@
   justify-content: start;
   margin-top: 20px;
   margin-left: 0;
-  /* Add additional styles for the .TeanmD_Tab container */
 }
+
 .TeamD_content .TeamD_Tab .nav-tabs {
-  background-color: white;
-  margin-right: 0;
-  width: fit-content; /* Set width to fit the content (tabs) */
+  border-bottom: none !important; /* Remove border under the tabs */
+  display: flex;
+  gap: 1px; /* Adjust gap as needed */
 }
 
 .TeamD_content .TeamD_Tab .nav-tabs .nav-link {
-  /* Add styles for individual tabs */
-  border-color: transparent !important;
-  background-color: transparent !important;
-  color: black !important;
+  /* Fixed width for each tab */
+  width: 100px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center align text */
+  background-color: white; /* Background color */
+  color: black; /* Text color */
+  padding-left: 3rem; /* Padding on the left */
+  padding-right: 3rem; /* Padding on the right */
+  margin: 0; /* Remove margin */
+  text-decoration: none; /* Remove default underline */
+  border: none !important; /* Remove any borders */
+  box-shadow: none !important; /* Remove any box shadows */
 }
 
 .TeamD_content .TeamD_Tab .nav-tabs .nav-link.active {
-  /* Add styles for the active tab */
-  background-color: #02790e !important;
-  border-color: transparent !important;
-  color: white !important;
+  background-color: #02790e; /* Background color for active tab */
+  color: white; /* Text color for active tab */
 }
 
 /* Customize Pagination component */
 .pagination-custom {
   background-color: transparent !important;
   border-color: transparent !important;
+  position: fixed;
+  bottom: 3rem;
+  text-align: center; /* Center pagination horizontally */
 }
 
 /* Customize active item */
@@ -255,7 +266,7 @@
 
 /* Styles for icons within TeamD_content */
 .TeamD_icon {
-  width: 25px; /* Width of the icon */
+  width: 35px; /* Width of the icon */
   height: 25px; /* Height of the icon */
 }
 
@@ -317,12 +328,20 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .pagination-custom {
+    bottom: -65vh; /* Example: Move pagination closer to the bottom on smaller screens */
+    position: absolute;
+  }
   .withSearchBar {
     gap: 200px; /* Gap between items */
   }
 }
 
 @media only screen and (max-width: 768px) {
+  .pagination-custom {
+    bottom: -207vh; /* Example: Move pagination closer to the bottom on smaller screens */
+    position: absolute;
+  }
   .TeamD_content .TeamD_Tab {
     display: flex;
     justify-content: center;
@@ -340,6 +359,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+   .pagination-custom {
+    bottom: -170vh; /* Example: Move pagination closer to the bottom on smaller screens */
+    position: absolute;
+  }
   /* Responsive styles for TeamD_content */
   .TeamD_content .TeamD_Tab {
     display: flex;
@@ -380,6 +403,10 @@
 }
 
 @media only screen and (max-width: 390px) {
+  .pagination-custom {
+    bottom: -170vh; /* Example: Move pagination closer to the bottom on smaller screens */
+    position: absolute;
+  }
   .TeamD_content .TeamD_Tab {
     display: flex;
     justify-content: center;

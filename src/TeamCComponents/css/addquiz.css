@@ -1,90 +1,55 @@
-@media (max-width: 767px),
-  (min-width: 768px) and (max-width: 1023px),
-  (min-width: 1024px) {
-  .teamcaddquizbody {
-    background: #ebffe5;
-  }
-  .AddQuizTitle {
-    font-size: 30px;
-    color: #145a32; /* Change the "Forum" text color to dark green */
-    font-weight: 500;
-    /*text-shadow: 0 0 3px black, 0 0 5px white;*/
-  }
+.teamcaddquizbody {
+  background: #ebffe5;
+}
 
-  .quizOption {
-    width: 500px;
-    padding: 10px;
-  }
+.teambaddtitle {
+  margin-left: 10px;
+  background-color: #e0f8d9;
+  color: black;
+  width: 100%;
+  max-width: 480px; /* Limiting maximum width */
+}
 
-  .teambaddtitle {
-    margin-left: 10px;
-    background-color: #e0f8d9;
-    color: black;
-    width: 480px;
-  }
+.teamcadddesc {
+  margin-left: 10px;
+  margin-top: 10px; /* Added margin-top to align with other elements */
+  width: calc(100% - 20px); /* Adjusted width to match teamcaddform with left margin */
+  max-width: 100%; /* Allow maximum width to adapt to the container */
+  height: 100px;
+  background-color: #e0f8d9;
+  color: black;
+}
 
-  .teamcadddesc {
-    margin-left: 10px;
-    width: 945px;
-    height: 100px;
-  }
+.teamcquizbtn,
+.teamcquizbtnone,
+.teamcquizbtntwo {
+  background-color: #165207; /* Green background color */
+  color: #fff; /* White text color */
+  border-color: #165207; /* Green border color */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+  text-align: left; /* Align the text to the left */
+  margin-bottom: 20px;
+  float: right; /* Align to the right */
+}
 
-  .teamcadddesc {
-    background-color: #e0f8d9;
-    color: black;
-  }
+.teamcquizbtn,
+.teamcquizbtnone,
+.teamcquizbtntwo {
+  width: auto;
+}
 
-  .teamcadddesc:focus {
-    background-color: #ebffe5;
-  }
+.teamcpagination {
+  background-color: #145a32;
+}
 
-  .teambaddtitle:focus {
-    background-color: #ebffe5;
-  }
+.teamcaddform,
+.teamcaddpage {
+  background-color: #e0f8d9;
+  color: black;
+}
 
-  .teamcquizbtn {
-    background-color: #165207; /* Green background color */
-    color: #fff; /* White text color */
-    border-color: #165207; /* Green border color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    text-align: left; /* Align the text to the left */
-    margin-left: 905px;
-    margin-bottom: 10px;
-
-    /* margin-left: 1070px;
-    margin-bottom: 10px;
-    width: auto; */
-  }
-  .teamcquizbtnone {
-    background-color: #165207; /* Green background color */
-    color: #fff; /* White text color */
-    border-color: #165207; /* Green border color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    text-align: left; /* Align the text to the left */
-  }
-
-  .teamcquizbtntwo {
-    background-color: #165207; /* Green background color */
-    color: #fff; /* White text color */
-    border-color: #165207; /* Green border color */
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
-    text-align: left; /* Align the text to the left */
-    margin-left: 5px;
-  }
-
-  .teamcpagination {
-    background-color: #145a32;
-  }
-
-  .teamcaddform {
-    background-color: #e0f8d9;
-    color: black;
-  }
-
-  .teamcaddform:focus {
-    background-color: #ebffe5;
-  }
-  .teamcaddpage {
-    background-color: #e0f8d9;
-  }
+.teamcaddform:focus,
+.teambaddtitle:focus,
+.teamcadddesc:focus {
+  background-color: #ebffe5;
 }

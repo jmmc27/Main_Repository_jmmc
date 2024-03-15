@@ -94,14 +94,14 @@ const AddQuiz = () => {
                   <input
                     className="teambaddtitle form-control"
                     placeholder="Title"
-                    name="choice_3"
+                    name="Add Title"
                   />
                 </span>
               </div>
               <textarea
                 className="teamcadddesc form-control p-4 mb-4"
                 rows="5"
-                name="question"
+                name="Add Description"
                 placeholder="Add description"
               />
             </div>

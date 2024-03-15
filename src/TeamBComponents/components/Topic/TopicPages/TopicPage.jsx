@@ -225,8 +225,8 @@ const TopicPage = () => {
                   data-bs-target="#mainId"
                   type="button"
                   style={{
-                    backgroundColor: "#0E3B03",
-                    color: "white",
+                    backgroundColor: "white",
+                    color: "#0E3B03",
                     boxShadow:
                       "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
                   }}
@@ -328,8 +328,8 @@ const TopicPage = () => {
                   data-bs-target="#mainId"
                   type="button"
                   style={{
-                    backgroundColor: "#0E3B03",
-                    color: "white",
+                    backgroundColor: "white",
+                    color: "#0E3B03",
                     boxShadow:
                       "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
                   }}

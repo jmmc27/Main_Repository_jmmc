@@ -38,7 +38,7 @@ const Team_D_Content = () => {
 
   const [DateIssued, setDateIssued] = useState("recent"); // Initialize with default value
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(8); // Change this value according to your preference
+  const [itemsPerPage] = useState(8); // Change this value according to your preference
 
   useEffect(() => {
     handleCategoryChange(DateIssued); // Trigger filtering on initial render
