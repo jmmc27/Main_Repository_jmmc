@@ -1,8 +1,9 @@
+
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
-//import Team_D_HeaderV2 from "../../TeamDComponents/Team_D_HeaderV2";
+import Team_D_HeaderV2 from "../../TeamDComponents/Team_D_HeaderV2";
 
 import axios from "axios";
 
