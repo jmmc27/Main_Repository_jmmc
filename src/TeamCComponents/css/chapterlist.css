@@ -58,3 +58,20 @@
     font-size: 1rem;
   }
 }
+
+
+.c_chapter_cardtext {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.c_chptr:hover{
+  background-color: rgb(182, 230, 182);
+  border-radius: 5px;
+  filter: drop-shadow(
+    0 0 1em #56b45b
+  );
+}
+

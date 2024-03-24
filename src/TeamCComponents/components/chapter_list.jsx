@@ -78,53 +78,57 @@ function ChapterList() {
               >
                 {course_title}
               </h2>
-              <hr />
+              
               {chapter &&
                 chapter.map((chap, idc) => {
                   const { chapter_title, chapter_id } = chap;
                   return (
-                    <div className="d-flex align-items-center" key={idc}>
-                      <div
-                        className="c_chapter_cardmain card flex-grow-1"
-                        style={{
-                          willChange: "filter",
-                          transition: "filter 300ms",
-                          marginTop: "10px",
-                          backgroundColor: "#126912",
-                          borderRadius: "1rem",
-                        }}
-                      >
-                        <Link
-                          to={`/api/v1/auth/topics/${chapter_id}`}
-                          className="h5 text-white text-decoration-none c_chapter_cardtext"
-                        >
-                          <div
-                            className="card-body d-flex c_chapter_cardbody"
-                            style={{
-                              backgroundColor: "#126912",
-                              borderRadius: "1rem",
-                            }}
-                          >
-                            {chapter_title}
-                          </div>
-                        </Link>
-                      </div>
-                      <div
-                        className="small-box-container c_chapter_scoremain"
-                        style={{ marginTop: "0.6rem", marginLeft: "0.99rem" }}
-                      >
+                    <div>
+                      <div className="c_chptr d-flex align-items-center" key={idc}>
                         <div
-                          className="small-box c_chapter_scoresub d-flex align-items-center justify-content-center text-white"
+                          className="c_chapter_cardmain card flex-grow-1"
                           style={{
-                            backgroundColor: "#126912",
-                            width: "4rem",
-                            height: "4rem",
-                            borderRadius: "10px",
+                            willChange: "filter",
+                            transition: "filter 300ms",
+                            backgroundColor: "transparent",
+                            border: "none",
+                            
                           }}
                         >
-                          <span>-$-</span>
+                          <Link
+                            to={`/api/v1/auth/topics/${chapter_id}`}
+                            className="text-black text-decoration-none c_chapter_cardtext"
+                          >
+                            <div
+                              className="card-body d-flex c_chapter_cardbody"
+                              style={{
+                                backgroundColor: "transparent",
+                                color: '#0C090A',color: '#0C090A',
+                                fontSize: '1rem'
+                              }}
+                            >
+                              {chapter_title}
+                            </div>
+                          </Link>
+                        </div>
+                        <div
+                          className="small-box-container c_chapter_scoremain"
+                          style={{ marginLeft: "0.99rem" }}
+                        >
+                          <div
+                            className="small-box c_chapter_scoresub d-flex align-items-center justify-content-center text-black"
+                            style={{
+                              backgroundColor: "transparent",
+                              width: "4rem",
+                              height: "4rem",
+                              border: "none",
+                            }}
+                          >
+                            <span>-$-</span>
+                          </div>
                         </div>
                       </div>
+                      <hr />
                     </div>
                   );
                 })}

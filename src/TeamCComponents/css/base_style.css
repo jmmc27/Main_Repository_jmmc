@@ -14,21 +14,37 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin-left: 5px;
-  gap: 10px;
+  margin-right: 5px;
+  padding: 10px;
+}
+
+.c_chapter_cardtxt {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #c_preview_courseprev {
   font-size: 1.8rem;
 }
 
+#c_course_courses:hover{
+  background-color: rgb(182, 230, 182);
+  border-radius: 5px;
+}
+
+.c_chapter_cardtext:hover{
+  color: #000000;
+}
 /* .buttonReturn:hover .c_chapter_return {
   transform: scale(1.1); /* Scales up chapter return button on hover */
 
 #c_course_courses:hover,
 #c_course_cardmain {
   filter: drop-shadow(
-    0 0 1em #116315
+    0 0 1em #56b45b
   ); /* Applies drop shadow to course item container on hover */
   color: #0e3b03;
 }
@@ -110,16 +126,11 @@
 
 .c_course_cardmain {
   display: flex;
-  flex-direction: column;
-  margin-top: 10px; /* Adds top margin to the course card main */
+  flex-direction: column; 
   will-change: filter; /* Indicates that the 'filter' property will be changed */
   transition: filter 300ms; /* Sets a transition effect for the 'filter' property with a duration of 300 milliseconds */
   /*background-color: red; /* Sets the background color of the course card main to red */
   border-radius: 0.5rem; /* Sets the border radius of the course card main */
-}
-
-#c_course_courses {
-  margin: 5px;
 }
 
 #c_course_cardmain {
@@ -268,7 +279,7 @@
   .c_course_cardmain {
     display: flex;
     flex-direction: column;
-    margin-top: 10px; /* Adds top margin to the course card main */
+     /* Adds top margin to the course card main */
     will-change: filter; /* Indicates that the 'filter' property will be changed */
     transition: filter 300ms; /* Sets a transition effect for the 'filter' property with a duration of 300 milliseconds */
     /*background-color: red; /* Sets the background color of the course card main to red */
@@ -313,7 +324,7 @@
   .c_course_cardmain {
     display: flex;
     flex-direction: column;
-    margin-top: 10px; /* Adds top margin to the course card main */
+    /* Adds top margin to the course card main */
     will-change: filter; /* Indicates that the 'filter' property will be changed */
     transition: filter 300ms; /* Sets a transition effect for the 'filter' property with a duration of 300 milliseconds */
     /*background-color: red; /* Sets the background color of the course card main to red */
@@ -366,7 +377,7 @@
 
   #c_course_tagtext,
   #c_course_cardbody {
-    font-size: 1rem; /* Sets the font size for the course tag text and card body */
+    font-size: 0.8rem; /* Sets the font size for the course tag text and card body */
     text-align: left;
   }
 
@@ -385,7 +396,7 @@
   .c_course_cardmain {
     display: flex;
     flex-direction: column;
-    margin-top: 10px; /* Adds top margin to the course card main */
+    /* Adds top margin to the course card main */
     will-change: filter; /* Indicates that the 'filter' property will be changed */
     transition: filter 300ms; /* Sets a transition effect for the 'filter' property with a duration of 300 milliseconds */
     /*background-color: red; /* Sets the background color of the course card main to red */
@@ -437,7 +448,7 @@
 
   #c_course_tagtext,
   #c_course_cardbody {
-    font-size: 1rem; /* Adjusts font size of course tag text and card body */
+    font-size: 0.8rem; /* Adjusts font size of course tag text and card body */
     text-align: left;
   }
 
@@ -480,7 +491,7 @@
   .c_course_cardmain {
     display: flex;
     flex-direction: column;
-    margin-top: 10px; /* Adds top margin to the course card main */
+     /* Adds top margin to the course card main */
     will-change: filter; /* Indicates that the 'filter' property will be changed */
     transition: filter 300ms; /* Sets a transition effect for the 'filter' property with a duration of 300 milliseconds */
     /*background-color: red; /* Sets the background color of the course card main to red */
