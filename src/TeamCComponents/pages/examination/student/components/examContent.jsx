@@ -75,15 +75,6 @@ const scoringFunction = () => {
   alert(`Your score: ${score}/${totalItems}`);
 };
 
-
-
-
-
-
-
-
-
-
   return (
     <>
     <Team_D_HeaderV2/>

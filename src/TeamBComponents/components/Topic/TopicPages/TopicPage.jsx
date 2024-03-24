@@ -19,6 +19,8 @@ import { CourseContext } from "../../context/CourseContext";
 import axios from "axios";
 import Footer from "../../Footer";
 import DeleteAllTopics from "../TopicModal/DeleteAllTopics";
+import { TbPlugX } from "react-icons/tb";
+import AddQuiz from "../../../../TeamCComponents/pages/AddQuiz";
 
 const TopicPage = () => {
   const navigate = useNavigate();
@@ -83,7 +85,7 @@ const TopicPage = () => {
   const [showEditTopic, setShowEditTopic] = useState(false);
 
   //functions for showing and hiding description, add topic, and edit topic
-
+//fdfd
   const showDescriptionHandle = () => {
     setShowCourseDescription(true);
     setShowAddTopic(false);
@@ -141,6 +143,16 @@ const TopicPage = () => {
   console.log(courses);
 
   // const [showDeleteAllTopics, setShowDeleteAllTopics] = useState(false);
+  // added by dasup
+  
+  console.log(chapters);
+  const [chapterId, setChapterId] = useState("")
+  console.log(chapterId)
+  useEffect(() => {
+    chapterId
+  },[])
+
+
   return (
     <>
       <Nav />
@@ -216,8 +228,45 @@ const TopicPage = () => {
                 );
               })}
             </div>
+                <div>
+                  {chapters.map((chapter, idx) => {
+                    const {chapter_id} = chapter
+                    return (
+                      <div key={idx}>
+                      <Link to={`/addquiz/${chapter_id}`}>Add Quiz</Link>
+                      
+                    </div>
+                    )
+                  })}
+                </div>
 
-            <Link to="/AddQuiz">
+                <div className="w-[100%] flex justify-center items-center">
+                  <button
+                  className="btn courseButton"
+                  data-bs-toggle="modal"
+                  data-bs-target="#mainId"
+                  type="button"
+                  style={{
+                    backgroundColor: "white",
+                    color: "#0E3B03",
+                    boxShadow:
+                      "0 2px 5px 0 rgb(0 0 0 / 25%), 0 5px 5px 0 rgb(0 0 0 / 30%)",
+                  }}
+                >
+                  {chapters.map((chapter, idx) => {
+                    const {chapter_id} = chapter
+                    return (
+                      <div key={idx}>
+                      <Link to={`/QuizDesc/${chapter_id}`}>Create Quiz</Link>
+                      
+                    </div>
+                    )
+                  })}
+                  </button>
+                </div>
+
+                
+            {/* <Link to="/AddQuiz">
               <div className="w-[100%] flex justify-center items-center">
                 <button
                   className="btn courseButton"
@@ -234,7 +283,8 @@ const TopicPage = () => {
                   Create Quiz
                 </button>
               </div>
-            </Link>
+            </Link> */}
+            
             <div
               className="flex items-center justify-center h-[30%] "
               onClick={showAddHandle}
@@ -246,6 +296,13 @@ const TopicPage = () => {
                 Add New Topic
               </span>
             </div>
+{/*              
+            <Link
+                to={`/AddQuiz/${chapter_id}`}>
+              add quiz
+            </Link> */}
+
+            {/*  */}
           </div>
         </div>
 

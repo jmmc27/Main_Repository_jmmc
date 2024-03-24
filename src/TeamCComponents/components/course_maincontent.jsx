@@ -1,4 +1,3 @@
-
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -9,6 +8,7 @@ import axios from "axios";
 
 function Component_MainContent() {
   const [chapter, setChapters] = useState([]);
+  const navigate = useNavigate(); // Hook for navigation
 
   const { id } = useParams();
   useEffect(() => {
@@ -31,6 +31,11 @@ function Component_MainContent() {
     fetchChapters();
   }, [id]);
   console.log(chapter);
+
+  const handleYesButtonClick = () => {
+    // Assuming you want to append the current chapter ID to the URL
+    navigate(`/api/v1/auth/studentexam/${id}`);
+  };
 
   return (
     <>
@@ -121,9 +126,7 @@ function Component_MainContent() {
                 type="button"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
-                onClick={() => {
-                  window.location.href = urlQuiz;
-                }}
+                onClick={handleYesButtonClick} // Handle Yes button click
                 style={{
                   backgroundColor: "#0e3b03",
                   color: "#ffffff",

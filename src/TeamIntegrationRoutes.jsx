@@ -78,6 +78,7 @@ import AssessmentQuiz from "./TeamCComponents/pages/AssessmentQuiz";
 import Component_MainContent from "./TeamCComponents/components/quiz_form";
 import StudentExamPage from "./TeamCComponents/pages/examination/student/s_examPage";
 import InstructorExamPage from "./TeamCComponents/pages/examination/instructor/i_examPage";
+import AddQuizDesc from './TeamCComponents/pages/QuizDesc';
 
 // team D
 import Team_D_View from "./TeamDComponents/Team_D_View";
@@ -87,6 +88,7 @@ import Team_D_Content from "./TeamDComponents/Team_D_Content";
 import Home from "./TeamAComponents/components/Home";
 import ForumDInstructor from "./TeamCComponents/pages/ForumDInstructor";
 import CertificateGenerator from "./TeamCComponents/pages/CertificateGenerator";
+
 
 function TeamIntegrationRoutes() {
   return (
@@ -138,7 +140,8 @@ function TeamIntegrationRoutes() {
           <Route path="/assessment" element={<TeamC_Assessments />} />
           <Route path="/course" element={<TeamC_Course />} />
           <Route path="/ForumF" element={<ForumF />} />
-          <Route path="/AddQuiz" element={<AddQuiz />} />
+          <Route path="/AddQuiz/:quiz_id" element={<AddQuiz />} />
+          <Route path="/QuizDesc/:chapter_id" element={<AddQuizDesc />} />
           <Route path="/AssessmentQuiz" element={<AssessmentQuiz />} />
           <Route path="/ForumFInstructor" element={<ForumFInstructor />} />
           <Route path="/forum_discussion" element={<ForumD />} />
@@ -149,9 +152,7 @@ function TeamIntegrationRoutes() {
           <Route path="/api/v1/auth/chapters/:id" element={<ChapterList />} />
           <Route path="/api/v1/auth/topics/:id" element={<TeamC_Topics />} />
           <Route path="/quizform" element={<TeamC_QuizForm />} />
-          <Route
-            path="/api/v1/auth/studentexam/:id"
-            element={<StudentExamPage />}
+          <Route path="/api/v1/auth/studentexam/:id" element={<StudentExamPage />}
           />
           <Route path="/instructorexam" element={<InstructorExamPage />} />
 
